@@ -3,7 +3,10 @@ from app.services.decision_engine import run_engine, simulate_cash_flow, calcula
 from app.services.email_generator import generate_all_emails
 from app.services.data_ingestion import load_normalized_state, enrich_from_ledger
 from app.services.predictive_engine import forecast_revenue, compute_seasonal_insights, generate_demand_forecast
+<<<<<<< HEAD
 from app.services.context_agents import WebCrawlingAgent, ContextAnalysisAgent
+=======
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 import os
 import json
 
@@ -206,6 +209,7 @@ def get_forecast():
     monthly_incomes = [m["income"] for m in monthly_data]
     monthly_expenses = [m["expense"] for m in monthly_data]
 
+<<<<<<< HEAD
     # Agent Layer: Extract context multiplier
     try:
         crawler = WebCrawlingAgent()
@@ -219,19 +223,30 @@ def get_forecast():
         agent_reasoning = "Agents unavailable."
 
     revenue_forecast = forecast_revenue(monthly_incomes, periods=3, context_multiplier=multiplier)
+=======
+    revenue_forecast = forecast_revenue(monthly_incomes, periods=3)
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
     seasonal = compute_seasonal_insights(monthly_data)
 
     # Production trend from daily data
     prod_data = ledger.get("production_data", {}).get("daily_production", {})
     prod_units = list(prod_data.values()) if prod_data else []
+<<<<<<< HEAD
     demand_forecast = generate_demand_forecast(prod_units, days=30, demand_multiplier=multiplier)
+=======
+    demand_forecast = generate_demand_forecast(prod_units, days=30)
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 
     return {
         "revenue_forecast": revenue_forecast,
         "seasonal_insights": seasonal,
         "demand_forecast": demand_forecast,
         "monthly_summary": monthly_data,
+<<<<<<< HEAD
         "key_insights": seasonal.get("insights", []) + [agent_reasoning]
+=======
+        "key_insights": seasonal.get("insights", [])
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
     }
 
 

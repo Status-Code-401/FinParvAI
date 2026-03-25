@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
+<<<<<<< HEAD
 import { getDashboard, getCashFlow, getForecast } from '../services/api';
 import {
   AlertTriangle, TrendingUp, TrendingDown, Shield,
   Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity, Cpu, Sparkles
+=======
+import { getDashboard, getCashFlow } from '../services/api';
+import {
+  AlertTriangle, TrendingUp, TrendingDown, Shield,
+  Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 } from 'lucide-react';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid
@@ -37,7 +44,10 @@ const RiskBadge = ({ level }: { level: string }) => {
 export default function Dashboard() {
   const { data: dash, loading: dl } = useData(getDashboard);
   const { data: cf } = useData(() => getCashFlow(14));
+<<<<<<< HEAD
   const { data: forecastData } = useData(getForecast);
+=======
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 
   if (dl) return <div className="loading-center"><div className="spinner" /><span>Analyzing finances…</span></div>;
   if (!dash) return null;
@@ -140,6 +150,10 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
       {/* Cash Flow Mini Chart */}
       <div className="card section-gap">
         <div className="card-header">
@@ -165,6 +179,7 @@ export default function Dashboard() {
           </AreaChart>
         </ResponsiveContainer>
       </div>
+<<<<<<< HEAD
       {/* AI Intelligence & Explainability Panel */}
       {forecastData && (
         <div className="card section-gap" style={{ border: '1px solid var(--accent)' }}>
@@ -208,6 +223,8 @@ export default function Dashboard() {
           </div>
         </div>
       )}
+=======
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 
       {/* Bottom row */}
       <div className="grid-2 section-gap">

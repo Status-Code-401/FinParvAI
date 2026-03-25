@@ -107,6 +107,7 @@ export default function Ingest() {
             };
           }}
         />
+<<<<<<< HEAD
 
         <UploadZone
           label="🧾 Multimodal Document (PDF/Image/Text)"
@@ -125,6 +126,8 @@ export default function Ingest() {
             };
           }}
         />
+=======
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
       </div>
 
       <div className="card section-gap">

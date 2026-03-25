@@ -1,7 +1,10 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from fastapi.responses import JSONResponse
 from app.services.data_ingestion import parse_bank_statement_csv, parse_invoices_json
+<<<<<<< HEAD
 from app.services.intelligent_parser import extract_text_from_image, extract_text_from_pdf, parse_financial_document
+=======
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 import json
 
 router = APIRouter(prefix="/api/ingest", tags=["ingest"])
@@ -53,6 +56,7 @@ async def ingest_financial_state(file: UploadFile = File(...)):
         "payables_count": len(data.get("payables", [])),
         "receivables_count": len(data.get("receivables", []))
     }
+<<<<<<< HEAD
 
 
 @router.post("/document")
@@ -81,3 +85,5 @@ async def ingest_document(file: UploadFile = File(...)):
         "extracted_text_snippet": raw_text[:100] + "...",
         "structured_data": structured_data
     }
+=======
+>>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
