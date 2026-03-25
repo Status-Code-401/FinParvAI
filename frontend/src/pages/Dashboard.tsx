@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getDashboard, getCashFlow, getForecast } from '../services/api';
 import {
-  AlertTriangle, TrendingUp, TrendingDown, Shield,
-  Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity, Cpu, Sparkles, Target, CheckCircle
+  AlertTriangle, TrendingUp, TrendingDown, Shield, Clock,
+  DollarSign, ArrowUpRight, ArrowDownRight, Activity, Cpu, Sparkles, Target, CheckCircle
 } from 'lucide-react';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid
@@ -87,8 +87,8 @@ export default function Dashboard() {
   return (
     <div>
       <div className="page-header">
-        <h1 className="page-title">Financial Dashboard</h1>
-        <p className="page-subtitle">Real-time cash intelligence for {dash.business_name}</p>
+        <h1 className="page-title">My Business Dashboard</h1>
+        <p className="page-subtitle">Here's a snapshot of {dash.business_name}'s financial health today</p>
       </div>
 
       {/* Alert banner */}
@@ -96,15 +96,15 @@ export default function Dashboard() {
         <div className="alert alert-danger" style={{ marginBottom: 20 }}>
           <AlertTriangle size={18} />
           <div>
-            <strong>Cash Shortfall Alert:</strong> Cash turns negative on Day {dash.days_to_zero} ({dash.first_negative_date}).
-            Immediate action required.
+            <strong>⚠️ Running Low on Cash:</strong> Your account may go negative in {dash.days_to_zero} days (around {dash.first_negative_date}).
+            Check "What To Do Next" for immediate steps.
           </div>
         </div>
       )}
       {dash.shortfall_detected && dash.is_safe && (
         <div className="alert alert-warning" style={{ marginBottom: 20 }}>
           <AlertTriangle size={18} />
-          <strong>Potential shortfall detected.</strong>&nbsp;Obligations may exceed available liquidity. Review recommendations.
+          <strong>Heads up:</strong>&nbsp;Your upcoming bills might exceed what you currently have. Review your action plan.
         </div>
       )}
 
@@ -132,20 +132,20 @@ export default function Dashboard() {
 
         <div className="card" style={{ borderTop: '2px solid var(--danger)' }}>
           <div className="card-header">
-            <span className="card-title">Total Obligations</span>
+            <span className="card-title">Bills to Pay</span>
             <ArrowDownRight size={16} color="var(--danger)" />
           </div>
           <div className="card-value">{fmtK(dash.total_payables)}</div>
-          <div className="card-sub">{dash.critical_payables} critical · {dash.payables_count} total payables</div>
+          <div className="card-sub">{dash.critical_payables} urgent · {dash.payables_count} total bills pending</div>
         </div>
 
         <div className="card" style={{ borderTop: '2px solid var(--success)' }}>
           <div className="card-header">
-            <span className="card-title">Expected Receivables</span>
+            <span className="card-title">Money Owed to Me</span>
             <ArrowUpRight size={16} color="var(--success)" />
           </div>
           <div className="card-value">{fmtK(dash.total_receivables_expected)}</div>
-          <div className="card-sub">{dash.overdue_receivables} overdue · {dash.receivables_count} total</div>
+          <div className="card-sub">{dash.overdue_receivables} overdue · {dash.receivables_count} customers pending</div>
         </div>
 
         <div className="card">
@@ -156,7 +156,7 @@ export default function Dashboard() {
           <div className="card-value" style={{ color: netPos >= 0 ? 'var(--success)' : 'var(--danger)' }}>
             {fmtK(Math.abs(netPos))}
           </div>
-          <div className="card-sub">{netPos >= 0 ? 'Surplus' : 'Deficit'} after obligations</div>
+          <div className="card-sub">{netPos >= 0 ? 'You have a surplus 🎉' : 'Deficit — bills exceed cash'}</div>
         </div>
 
         <div className="card">
@@ -173,8 +173,8 @@ export default function Dashboard() {
       {/* Cash Flow Mini Chart */}
       <div className="card section-gap">
         <div className="card-header">
-          <span style={{ fontWeight: 700, fontSize: 15 }}>14-Day Cash Projection</span>
-          <span className="badge badge-info">Live</span>
+          <span style={{ fontWeight: 700, fontSize: 15 }}>Cash for the Next 14 Days</span>
+          <span className="badge badge-info">Live forecast</span>
         </div>
         <ResponsiveContainer width="100%" height={200}>
           <AreaChart data={chartData}>
@@ -198,7 +198,7 @@ export default function Dashboard() {
       {/* Premium Strategy Center (Merged Covenants & Action Plan) */}
       <div className="section-gap">
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-          <div className="logo-mark" style={{ fontSize: 24 }}>🛡️ Strategy Center</div>
+          <div className="logo-mark" style={{ fontSize: 22 }}>🛡️ Alerts & Actions</div>
           <div className="badge badge-info" style={{ borderRadius: 4 }}>Deterministic Intelligence</div>
         </div>
 
@@ -206,13 +206,13 @@ export default function Dashboard() {
           {/* Left Column: Covenants & Insight Cards */}
           <div className="glass-card" style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 20 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase', letterSpacing: 1 }}>
-              <Shield size={16} /> Active Financial Covenants
+              <Shield size={16} /> Key Alerts & Financial Rules
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {!dash.explanation ? (
                 <div className="text-muted" style={{ padding: 20, textAlign: 'center', border: '1px dashed var(--border)', borderRadius: 8 }}>
-                  No active constraints. All systems nominal.
+                  ✅ No alerts right now. Your finances look stable.
                 </div>
               ) : (
                 dash.explanation.split('###').filter(s => s.trim() && !s.includes('Financial Decision Summary')).map((section, idx) => {
@@ -239,7 +239,7 @@ export default function Dashboard() {
           {/* Right Column: Prioritized Task List */}
           <div className="glass-card" style={{ padding: 24 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--success)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 20 }}>
-              <Activity size={16} /> Prioritized Action Plan
+              <Activity size={16} /> What Should I Do Now?
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -263,7 +263,7 @@ export default function Dashboard() {
               ))}
               <div style={{ marginTop: 10, textAlign: 'center' }}>
                 <a href="/actions" className="btn btn-ghost btn-sm" style={{ width: '100%', justifyContent: 'center', borderRadius: 8 }}>
-                  Open Full Strategy Console <ArrowUpRight size={14} />
+                  See Full Action Plan <ArrowUpRight size={14} />
                 </a>
               </div>
             </div>
@@ -278,26 +278,26 @@ export default function Dashboard() {
             <span style={{ fontWeight: 800, fontSize: 16, display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent)' }}>
               <Cpu size={20} /> AI Agent Observability (Chain of Thought & SHAP)
             </span>
-            
+
             {/* Confidence Meter */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)' }}>
                 System Confidence: {Math.round((forecastData.demand_forecast?.confidence || 0.85) * 100)}%
               </div>
               <div style={{ width: 80, height: 6, background: 'var(--bg-body)', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)' }}>
-                <div style={{ 
-                  width: `${(forecastData.demand_forecast?.confidence || 0.85) * 100}%`, 
-                  height: '100%', 
-                  background: 'linear-gradient(90deg, var(--warning), var(--accent))' 
+                <div style={{
+                  width: `${(forecastData.demand_forecast?.confidence || 0.85) * 100}%`,
+                  height: '100%',
+                  background: 'linear-gradient(90deg, var(--warning), var(--accent))'
                 }} />
               </div>
             </div>
           </div>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {/* Seasonal Insights Block */}
             {forecastData.seasonal_insights?.upcoming_seasons?.length > 0 && (
-              <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--accent)' }}>
+              <div style={{ background: 'var(--bg-secondary)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--accent)' }}>
                 <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 10, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
                   <Clock size={14} color="var(--accent)" /> Industry Seasonal Opportunities
                 </div>
@@ -312,7 +312,7 @@ export default function Dashboard() {
             )}
 
             {/* Chain of Thought Block */}
-            <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--purple)' }}>
+            <div style={{ background: 'var(--bg-secondary)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--purple)' }}>
               <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
                 <Sparkles size={14} color="var(--purple)" /> LangChain Context Agent Reasoning
               </div>
@@ -323,7 +323,7 @@ export default function Dashboard() {
 
             {/* SHAP Explainability Block */}
             <div className="grid-2" style={{ gap: 16 }}>
-              <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--cyan)' }}>
+              <div style={{ background: 'var(--bg-secondary)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--cyan)' }}>
                 <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--text-muted)' }}>
                   SARIMAX Revenue SHAP
                 </div>
@@ -332,7 +332,7 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--warning)' }}>
+              <div style={{ background: 'var(--bg-secondary)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--warning)' }}>
                 <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--text-muted)' }}>
                   LSTM Demand SHAP
                 </div>
@@ -349,7 +349,7 @@ export default function Dashboard() {
       <div className="grid-2 section-gap">
         {/* Production */}
         <div className="card">
-          <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Production This Month</div>
+          <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Production This Month 🏭</div>
           <div className="countdown-wrap" style={{ marginBottom: 16 }}>
             <span className="countdown-number" style={{ color: 'var(--cyan)', fontSize: 36 }}>
               {dash.production_units_month?.toLocaleString()}
@@ -369,27 +369,27 @@ export default function Dashboard() {
 
         {/* Financial Health */}
         <div className="card">
-          <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Financial Health</div>
+          <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Financial Health Summary</div>
           <div className="stat-row">
-            <span className="stat-key">Monthly Income Avg</span>
+            <span className="stat-key">Avg Monthly Money In</span>
             <span className="stat-val" style={{ color: 'var(--success)' }}>{fmtK(dash.monthly_income)}</span>
           </div>
           <div className="stat-row">
-            <span className="stat-key">Monthly Expense Avg</span>
+            <span className="stat-key">Avg Monthly Money Out</span>
             <span className="stat-val" style={{ color: 'var(--danger)' }}>{fmtK(dash.monthly_expense)}</span>
           </div>
           <div className="stat-row">
-            <span className="stat-key">Avg Payment Cycle</span>
+            <span className="stat-key">Avg Days to Get Paid</span>
             <span className="stat-val">{dash.avg_payment_cycle} days</span>
           </div>
           <div className="stat-row">
-            <span className="stat-key">Overdue Receivables</span>
+            <span className="stat-key">Customers Who Haven't Paid</span>
             <span className="stat-val" style={{ color: dash.overdue_receivables > 0 ? 'var(--danger)' : 'var(--success)' }}>
               {dash.overdue_receivables}
             </span>
           </div>
           <div className="stat-row">
-            <span className="stat-key">Critical Payables</span>
+            <span className="stat-key">Urgent Bills Due</span>
             <span className="stat-val" style={{ color: 'var(--warning)' }}>{dash.critical_payables}</span>
           </div>
         </div>

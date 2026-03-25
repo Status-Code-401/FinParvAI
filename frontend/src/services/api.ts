@@ -16,22 +16,23 @@ export const getForecast = () => api.get('/api/forecast').then(r => r.data);
 export const getLedger = () => api.get('/api/ledger').then(r => r.data);
 export const getTransactions = () => api.get('/api/transactions').then(r => r.data);
 export const getFinancialState = () => api.get('/api/financial-state').then(r => r.data);
+export const getCalendar = () => api.get('/api/calendar').then(r => r.data);
 
-export const ingestBankCSV = (file: File) => {
+export const ingestBankCSV = (files: File[]) => {
   const form = new FormData();
-  form.append('file', file);
+  files.forEach(f => form.append('files', f));
   return api.post('/api/ingest/bank-statement', form).then(r => r.data);
 };
 
-export const ingestInvoices = (file: File) => {
+export const ingestInvoices = (files: File[]) => {
   const form = new FormData();
-  form.append('file', file);
+  files.forEach(f => form.append('files', f));
   return api.post('/api/ingest/invoices', form).then(r => r.data);
 };
 
-export const ingestDocument = (file: File) => {
+export const ingestDocument = (files: File[]) => {
   const form = new FormData();
-  form.append('file', file);
+  files.forEach(f => form.append('files', f));
   return api.post('/api/ingest/document', form).then(r => r.data);
 };
 export default api;

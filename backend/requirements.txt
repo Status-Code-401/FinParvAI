@@ -17,3 +17,4 @@ Pillow
 openai
 python-dotenv
 pypdf
+supabase

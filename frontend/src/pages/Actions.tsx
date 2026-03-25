@@ -69,35 +69,27 @@ export default function Actions() {
   return (
     <div>
       <div className="page-header">
-        <h1 className="page-title">Actions & Email Drafts</h1>
-        <p className="page-subtitle">Actionable decisions from the decision engine + context-aware emails</p>
+        <h1 className="page-title">What To Do Next</h1>
+        <p className="page-subtitle">Your personalised action list and ready-to-send emails — based on your latest data</p>
       </div>
 
       {/* Tabs */}
       <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
         <button className={`btn ${tab === 'actions' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setTab('actions')}>
-          Payment Actions ({recs?.actions?.length || 0})
+          My Action Plan ({recs?.actions?.length || 0})
         </button>
         <button className={`btn ${tab === 'emails' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setTab('emails')}>
-          Email Drafts ({emails?.total || 0})
+          Ready-to-Send Emails ({emails?.total || 0})
         </button>
       </div>
 
-      {/* Explanation */}
-      {recs?.explanation && tab === 'actions' && (
-        <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid var(--accent)' }}>
-          <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 12 }}>🧠 Engine Reasoning (Chain-of-Thought)</div>
-          <div style={{ fontSize: 12.5, color: 'var(--text-secondary)', whiteSpace: 'pre-wrap', lineHeight: 1.9 }}>
-            {recs.explanation}
-          </div>
-        </div>
-      )}
+
 
       {tab === 'actions' && recs && (
         <>
           {/* Actions list */}
           <div className="card" style={{ marginBottom: 20 }}>
-            <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Prioritized Action Plan</div>
+            <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Your Prioritised Action Plan</div>
             {recs.actions.map((a: any, i: number) => (
               <div key={a.id} style={{
                 display: 'flex', gap: 14, padding: '14px 0',
@@ -119,7 +111,7 @@ export default function Actions() {
           {recs.overhead_optimization?.total_savings > 0 && (
             <div className="card" style={{ marginBottom: 20 }}>
               <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 12 }}>
-                💸 Overhead Optimization · Save {fmt(recs.overhead_optimization.total_savings)}
+                💸 You Could Save {fmt(recs.overhead_optimization.total_savings)}
               </div>
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                 {[...recs.overhead_optimization.pause, ...recs.overhead_optimization.reduce].map((o: any) => (
@@ -136,7 +128,7 @@ export default function Actions() {
           {/* Shortfall */}
           {recs.shortfall?.shortfall_detected && (
             <div className="card">
-              <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 12 }}>🔧 Shortfall Recovery</div>
+              <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 12 }}>🔧 How to Recover From a Cash Shortfall</div>
               <div className="alert alert-warning">{recs.shortfall.summary}</div>
               {recs.shortfall.strategies.map((s: any) => (
                 <div key={s.strategy} style={{ marginBottom: 16 }}>
@@ -170,7 +162,7 @@ export default function Actions() {
               <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--accent)' }}>{emails.ar_emails}</div>
             </div>
             <div className="card" style={{ padding: '12px 20px' }}>
-              <div className="card-title">Delay Requests</div>
+              <div className="card-title">Payment Delay Requests</div>
               <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--warning)' }}>{emails.ap_emails}</div>
             </div>
           </div>

@@ -36,18 +36,18 @@ export default function CashFlow() {
   return (
     <div>
       <div className="page-header">
-        <h1 className="page-title">Cash Flow Simulation</h1>
-        <p className="page-subtitle">Deterministic day-by-day liquidity projection</p>
+        <h1 className="page-title">Money In & Out</h1>
+        <p className="page-subtitle">See exactly how much cash you'll have each day for the next {days} days</p>
       </div>
 
       {/* Runway summary cards */}
       <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', marginBottom: 24 }}>
         <div className="card">
-          <div className="card-title">Opening Balance</div>
+          <div className="card-title">Money You Have Now</div>
           <div className="card-value">{fmt(data.cash_balance)}</div>
         </div>
         <div className="card">
-          <div className="card-title">Days to Zero</div>
+          <div className="card-title">Days Until Cash Runs Out</div>
           <div className="card-value" style={{ color: runway.is_safe ? 'var(--success)' : 'var(--danger)' }}>
             {runway.is_safe ? `${days}+` : runway.days_to_zero}
           </div>
@@ -69,13 +69,13 @@ export default function CashFlow() {
       {!runway.is_safe && (
         <div className="alert alert-danger">
           <TrendingDown size={18} />
-          <div>Cash turns negative on <strong>Day {runway.days_to_zero}</strong> ({runway.first_negative_date}). Immediate action required.</div>
+          <div>Your cash may run out on <strong>Day {runway.days_to_zero}</strong> ({runway.first_negative_date}). Check "What To Do Next" for immediate steps.</div>
         </div>
       )}
       {runway.is_safe && (
         <div className="alert alert-success">
           <TrendingUp size={18} />
-          Cash remains positive throughout the {days}-day window. Liquidity is healthy.
+          You're in good shape! Cash stays positive for the next {days} days.
         </div>
       )}
 
@@ -89,7 +89,7 @@ export default function CashFlow() {
 
       {/* Area chart */}
       <div className="card" style={{ marginBottom: 20 }}>
-        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Cash Balance Projection</div>
+        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Your Cash Balance Day by Day</div>
         <ResponsiveContainer width="100%" height={280}>
           <AreaChart data={chartData}>
             <defs>
@@ -113,7 +113,7 @@ export default function CashFlow() {
 
       {/* Bar chart */}
       <div className="card">
-        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Daily Inflows vs Outflows</div>
+        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Daily Money Coming In vs Going Out</div>
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={chartData} barGap={2}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
@@ -132,7 +132,7 @@ export default function CashFlow() {
 
       {/* Event log */}
       <div className="card section-gap">
-        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Key Cash Events</div>
+        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Important Dates & Events</div>
         <div className="table-wrap">
           <table>
             <thead>

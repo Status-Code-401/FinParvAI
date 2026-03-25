@@ -58,8 +58,6 @@ def get_dashboard():
         "shortfall_detected": result["shortfall"]["shortfall_detected"],
         "production_units_month": state.production.units_this_month if state.production else 0,
         "production_target": state.production.monthly_target if state.production else 0,
-        "explanation": result["explanation"],
-        "actions": result["actions"]["actions"]
     }
 
 
@@ -255,4 +253,172 @@ def get_transactions():
     return {
         "transactions": [t.dict() for t in transactions],
         "total": len(transactions)
+    }
+
+
+@router.get("/calendar")
+def get_calendar():
+    """
+    Return a day-keyed event map for the calendar dashboard.
+    Each date key maps to a list of events: sales, payables, receivables,
+    procurement deliveries, and historical bank transactions.
+    Covers 60 days back and 45 days forward from today.
+    """
+    from datetime import date, timedelta
+
+    state = _load_state()
+    ledger = _load_ledger()
+
+    today = date.today()
+    start_date = today - timedelta(days=60)
+    end_date = today + timedelta(days=45)
+
+    # Build an empty day map
+    day_map: dict = {}
+    cursor = start_date
+    while cursor <= end_date:
+        day_map[str(cursor)] = {
+            "date": str(cursor),
+            "is_today": cursor == today,
+            "is_past": cursor < today,
+            "is_future": cursor > today,
+            "events": [],
+            "net_flow": 0.0,
+            "total_inflow": 0.0,
+            "total_outflow": 0.0,
+        }
+        cursor += timedelta(days=1)
+
+    def add_event(date_str: str, event: dict):
+        if date_str in day_map:
+            flow = event.get("amount", 0)
+            if event.get("flow") == "in":
+                day_map[date_str]["total_inflow"] += flow
+                day_map[date_str]["net_flow"] += flow
+            elif event.get("flow") == "out":
+                day_map[date_str]["total_outflow"] += flow
+                day_map[date_str]["net_flow"] -= flow
+            day_map[date_str]["events"].append(event)
+
+    # ── 1. Historical bank transactions ─────────────────────────────────────
+    for txn in state.transactions:
+        if txn.date in day_map:
+            if txn.credit and txn.credit > 0:
+                add_event(txn.date, {
+                    "type": "bank_credit",
+                    "label": txn.description or "Payment received",
+                    "amount": txn.credit,
+                    "flow": "in",
+                    "category": txn.category or "income",
+                    "badge": "success",
+                })
+            if txn.debit and txn.debit > 0:
+                add_event(txn.date, {
+                    "type": "bank_debit",
+                    "label": txn.description or "Payment made",
+                    "amount": txn.debit,
+                    "flow": "out",
+                    "category": txn.category or "expense",
+                    "badge": "danger",
+                })
+
+    # ── 2. Daily production (past + today) ───────────────────────────────────
+    prod_data = ledger.get("production_data", {}).get("daily_production", {})
+    cost_per_unit = ledger.get("production_data", {}).get("cost_per_unit", 95)
+    sell_per_unit = ledger.get("production_data", {}).get("selling_price_per_unit", 185)
+
+    for date_str, units in prod_data.items():
+        if date_str in day_map and units > 0:
+            add_event(date_str, {
+                "type": "production",
+                "label": f"Production: {units} units",
+                "units": units,
+                "amount": round(units * sell_per_unit, 2),
+                "cost": round(units * cost_per_unit, 2),
+                "flow": "in",
+                "badge": "info",
+            })
+
+    # ── 3. Future expected production (simple avg projection) ────────────────
+    if prod_data:
+        avg_daily = round(sum(prod_data.values()) / len(prod_data))
+        future = today + timedelta(days=1)
+        while future <= end_date:
+            fstr = str(future)
+            if fstr in day_map and future.weekday() < 6:  # Mon-Sat
+                add_event(fstr, {
+                    "type": "production_forecast",
+                    "label": f"Expected production: ~{avg_daily} units",
+                    "units": avg_daily,
+                    "amount": round(avg_daily * sell_per_unit, 2),
+                    "flow": "in",
+                    "badge": "info",
+                    "forecast": True,
+                })
+            future += timedelta(days=1)
+
+    # ── 4. Payables ─────────────────────────────────────────────────────────
+    for p in ledger.get("active_payables", []):
+        due = p.get("due_date", "")
+        if due in day_map:
+            add_event(due, {
+                "type": "payable",
+                "label": f"Pay {p['vendor']}: {p.get('description', '')}",
+                "vendor": p["vendor"],
+                "amount": p["amount"],
+                "flow": "out",
+                "priority": p.get("type", "flexible"),
+                "badge": "danger" if p.get("type") == "critical" else "warning",
+                "payable_id": p.get("payable_id"),
+                "status": p.get("status", "unpaid"),
+            })
+
+    # ── 5. Receivables ───────────────────────────────────────────────────────
+    for r in ledger.get("active_receivables", []):
+        exp = r.get("expected_date", "")
+        if exp in day_map:
+            add_event(exp, {
+                "type": "receivable",
+                "label": f"Collect from {r['client']}",
+                "client": r["client"],
+                "amount": r["amount"],
+                "flow": "in",
+                "probability": r.get("collection_probability", 0.8),
+                "badge": "success",
+                "invoice_id": r.get("invoice_id"),
+                "status": r.get("status", "upcoming"),
+            })
+
+    # ── 6. Procurement deliveries ─────────────────────────────────────────────
+    with open(os.path.join(MOCK_DATA_DIR, "inventory_procurement.json")) as f:
+        inv_data = json.load(f)
+    proc_orders = inv_data.get("procurement_orders", [])
+
+    for po in proc_orders:
+        delivery_date = po.get("expected_delivery") or po.get("actual_delivery")
+        if delivery_date and delivery_date in day_map:
+            add_event(delivery_date, {
+                "type": "procurement",
+                "label": f"Delivery: {po.get('material', '')} from {po.get('vendor', '')}",
+                "vendor": po.get("vendor", ""),
+                "material": po.get("material", ""),
+                "quantity": po.get("quantity", 0),
+                "amount": po.get("total_cost", 0),
+                "flow": "neutral",
+                "badge": "accent",
+                "order_id": po.get("order_id", ""),
+                "status": po.get("status", "pending"),
+            })
+
+    # Return as sorted list for easy frontend rendering
+    return {
+        "days": [day_map[k] for k in sorted(day_map.keys())],
+        "today": str(today),
+        "start": str(start_date),
+        "end": str(end_date),
+        "summary": {
+            "total_payables_due": sum(p["amount"] for p in ledger.get("active_payables", [])),
+            "total_receivables_expected": sum(r["amount"] for r in ledger.get("active_receivables", [])),
+            "procurement_deliveries": len(proc_orders),
+        }
     }

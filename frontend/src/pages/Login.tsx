@@ -39,7 +39,7 @@ export default function Login() {
 
     if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
       sessionStorage.setItem('fp_auth', 'true');
-      navigate('/');
+      navigate('/upload');
     } else {
       setError('Invalid credentials. Use demo@finparvai.com / finparvai2024');
       setLoading(false);

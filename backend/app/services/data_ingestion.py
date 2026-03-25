@@ -227,6 +227,16 @@ def enrich_from_ledger(state: FinancialState, ledger_path: str) -> FinancialStat
                 state.vendor_insights.append(VendorInsight(**{
                     k: v[k] for k in VendorInsight.__fields__ if k in v
                 }))
+
+        # Enrich inventory status
+        inv_map = {i["item_id"]: i for i in inv_data.get("inventory_status", []) if "item_id" in i}
+        for item in state.inventory_status:
+            if item.item_id in inv_map:
+                full_item = inv_map[item.item_id]
+                item.unit_cost = full_item.get("unit_cost", item.unit_cost)
+                item.total_value = full_item.get("total_value", item.total_value)
+                item.item = full_item.get("item", item.item)
+
     except Exception:
         pass
     return state
