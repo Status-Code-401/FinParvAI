@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import financial, ingest
-<<<<<<< HEAD
 import os
 
 try:
@@ -9,8 +8,6 @@ try:
     load_dotenv()
 except ImportError:
     pass
-=======
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 
 app = FastAPI(
     title="FinParvai API",

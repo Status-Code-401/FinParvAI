@@ -13,10 +13,7 @@
     "lucide-react": "^1.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-<<<<<<< HEAD
     "react-is": "^19.2.4",
-=======
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
     "react-router-dom": "^7.13.2",
     "recharts": "^3.8.1"
   },

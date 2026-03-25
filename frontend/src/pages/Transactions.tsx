@@ -74,17 +74,10 @@ export default function Transactions() {
           }}
         />
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-<<<<<<< HEAD
           {categories.slice(0, 6).map((c: any) => (
             <button key={c} className={`btn btn-sm ${catFilter === c ? 'btn-primary' : 'btn-ghost'}`}
               onClick={() => setCatFilter(c)} style={{ textTransform: 'capitalize', fontSize: 11 }}>
               {String(c).replace(/_/g, ' ')}
-=======
-          {categories.slice(0, 6).map(c => (
-            <button key={c} className={`btn btn-sm ${catFilter === c ? 'btn-primary' : 'btn-ghost'}`}
-              onClick={() => setCatFilter(c)} style={{ textTransform: 'capitalize', fontSize: 11 }}>
-              {c.replace(/_/g, ' ')}
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
             </button>
           ))}
         </div>

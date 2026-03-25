@@ -6,7 +6,6 @@ pandas
 numpy
 python-dateutil
 httpx
-<<<<<<< HEAD
 statsmodels
 torch
 shap
@@ -18,5 +17,3 @@ Pillow
 openai
 python-dotenv
 pypdf
-=======
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948

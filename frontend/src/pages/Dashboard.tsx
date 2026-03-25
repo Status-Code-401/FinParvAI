@@ -1,15 +1,8 @@
 import { useEffect, useState } from 'react';
-<<<<<<< HEAD
 import { getDashboard, getCashFlow, getForecast } from '../services/api';
 import {
   AlertTriangle, TrendingUp, TrendingDown, Shield,
-  Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity, Cpu, Sparkles
-=======
-import { getDashboard, getCashFlow } from '../services/api';
-import {
-  AlertTriangle, TrendingUp, TrendingDown, Shield,
-  Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
+  Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity, Cpu, Sparkles, Target
 } from 'lucide-react';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid
@@ -30,6 +23,36 @@ function useData<T>(fn: () => Promise<T>) {
 const fmt = (n: number) => `₹${n?.toLocaleString('en-IN') ?? 0}`;
 const fmtK = (n: number) => n >= 100000 ? `₹${(n / 100000).toFixed(1)}L` : n >= 1000 ? `₹${(n / 1000).toFixed(1)}K` : `₹${n}`;
 
+// Lightweight custom markdown renderer to format explanations beautifully
+const renderExplanation = (text: string) => {
+  return text.split('\n').map((line, i) => {
+    // Header 3
+    if (line.startsWith('### ')) return <h3 key={i} style={{ marginTop: 24, marginBottom: 12, fontSize: 14, color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: 6 }}><Target size={14}/> {line.replace('### ', '')}</h3>;
+    // Header 2
+    if (line.startsWith('## ')) return <h2 key={i} style={{ marginTop: 16, marginBottom: 8, fontSize: 16, fontWeight: 800 }}>{line.replace('## ', '')}</h2>;
+    
+    // List item with strong extraction
+    if (line.startsWith('- ')) {
+      const parts = line.split('**');
+      const bolded = parts.map((part, j) => j % 2 === 1 ? <strong key={j} style={{ color: 'var(--text-main)' }}>{part}</strong> : part);
+      return (
+        <div key={i} style={{ marginLeft: 16, marginBottom: 8, display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 13, lineHeight: 1.5, color: 'var(--text-muted)' }}>
+          <span style={{ color: 'var(--accent)' }}>•</span>
+          <span>{bolded}</span>
+        </div>
+      );
+    }
+    
+    // Empty line spacer
+    if (!line.trim()) return <div key={i} style={{ height: 12 }} />;
+    
+    // Standard paragraph with strong extraction
+    const parts = line.split('**');
+    const bolded = parts.map((part, j) => j % 2 === 1 ? <strong key={j} style={{ color: 'var(--text-main)' }}>{part}</strong> : part);
+    return <div key={i} style={{ marginBottom: 6, fontSize: 13.5, lineHeight: 1.6 }}>{bolded}</div>;
+  });
+};
+
 const RiskBadge = ({ level }: { level: string }) => {
   const map: any = {
     low: ['badge-success', '✅ Safe'],
@@ -44,10 +67,7 @@ const RiskBadge = ({ level }: { level: string }) => {
 export default function Dashboard() {
   const { data: dash, loading: dl } = useData(getDashboard);
   const { data: cf } = useData(() => getCashFlow(14));
-<<<<<<< HEAD
   const { data: forecastData } = useData(getForecast);
-=======
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 
   if (dl) return <div className="loading-center"><div className="spinner" /><span>Analyzing finances…</span></div>;
   if (!dash) return null;
@@ -150,10 +170,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
       {/* Cash Flow Mini Chart */}
       <div className="card section-gap">
         <div className="card-header">
@@ -179,7 +195,18 @@ export default function Dashboard() {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-<<<<<<< HEAD
+      {/* Discriminative Model & Recommended Covenants */}
+      <div className="card section-gap" style={{ borderLeft: '4px solid var(--accent)' }}>
+        <div className="card-header" style={{ marginBottom: 16 }}>
+          <span style={{ fontWeight: 800, fontSize: 16, display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
+            <Shield size={20} color="var(--accent)" /> Discriminative Strategy & Active Covenants
+          </span>
+        </div>
+        <div style={{ background: 'var(--bg-body)', padding: '20px', borderRadius: 8, border: '1px solid var(--border)' }}>
+          {dash.explanation ? renderExplanation(dash.explanation) : <span className="text-muted">No deterministic constraints identified.</span>}
+        </div>
+      </div>
+
       {/* AI Intelligence & Explainability Panel */}
       {forecastData && (
         <div className="card section-gap" style={{ border: '1px solid var(--accent)' }}>
@@ -223,8 +250,6 @@ export default function Dashboard() {
           </div>
         </div>
       )}
-=======
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 
       {/* Bottom row */}
       <div className="grid-2 section-gap">

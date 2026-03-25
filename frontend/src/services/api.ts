@@ -29,13 +29,9 @@ export const ingestInvoices = (file: File) => {
   return api.post('/api/ingest/invoices', form).then(r => r.data);
 };
 
-<<<<<<< HEAD
 export const ingestDocument = (file: File) => {
   const form = new FormData();
   form.append('file', file);
   return api.post('/api/ingest/document', form).then(r => r.data);
 };
-
-=======
->>>>>>> 8a75da474f1dede6cb8e19bd9cc9c818e7322948
 export default api;
