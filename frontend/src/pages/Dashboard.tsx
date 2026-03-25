@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getDashboard, getCashFlow, getForecast } from '../services/api';
 import {
   AlertTriangle, TrendingUp, TrendingDown, Shield,
-  Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity, Cpu, Sparkles, Target
+  Clock, DollarSign, ArrowUpRight, ArrowDownRight, Activity, Cpu, Sparkles, Target, CheckCircle
 } from 'lucide-react';
 import {
   AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid
@@ -195,28 +195,122 @@ export default function Dashboard() {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-      {/* Discriminative Model & Recommended Covenants */}
-      <div className="card section-gap" style={{ borderLeft: '4px solid var(--accent)' }}>
-        <div className="card-header" style={{ marginBottom: 16 }}>
-          <span style={{ fontWeight: 800, fontSize: 16, display: 'flex', alignItems: 'center', gap: 8, color: 'var(--text-main)' }}>
-            <Shield size={20} color="var(--accent)" /> Discriminative Strategy & Active Covenants
-          </span>
+      {/* Premium Strategy Center (Merged Covenants & Action Plan) */}
+      <div className="section-gap">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+          <div className="logo-mark" style={{ fontSize: 24 }}>🛡️ Strategy Center</div>
+          <div className="badge badge-info" style={{ borderRadius: 4 }}>Deterministic Intelligence</div>
         </div>
-        <div style={{ background: 'var(--bg-body)', padding: '20px', borderRadius: 8, border: '1px solid var(--border)' }}>
-          {dash.explanation ? renderExplanation(dash.explanation) : <span className="text-muted">No deterministic constraints identified.</span>}
+
+        <div className="grid-2">
+          {/* Left Column: Covenants & Insight Cards */}
+          <div className="glass-card" style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase', letterSpacing: 1 }}>
+              <Shield size={16} /> Active Financial Covenants
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {!dash.explanation ? (
+                <div className="text-muted" style={{ padding: 20, textAlign: 'center', border: '1px dashed var(--border)', borderRadius: 8 }}>
+                  No active constraints. All systems nominal.
+                </div>
+              ) : (
+                dash.explanation.split('###').filter(s => s.trim() && !s.includes('Financial Decision Summary')).map((section, idx) => {
+                  const [title, ...content] = section.split('\n');
+                  return (
+                    <div key={idx} className="insight-card">
+                      <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 8, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <Target size={14} color="var(--accent)" /> {title.trim()}
+                      </div>
+                      <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                        {content.join('\n').trim().split('\n').map((line, lid) => (
+                          <div key={lid} style={{ marginBottom: 4 }}>
+                            {line.startsWith('- ') ? `• ${line.replace('- ', '').replace(/\*\*/g, '')}` : line.replace(/\*\*/g, '')}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
+
+          {/* Right Column: Prioritized Task List */}
+          <div className="glass-card" style={{ padding: 24 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--success)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 20 }}>
+              <Activity size={16} /> Prioritized Action Plan
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {dash.actions?.slice(0, 6).map((a: any) => (
+                <div key={a.id} style={{
+                  display: 'flex', gap: 14, padding: '14px',
+                  background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid var(--glass-border)', alignItems: 'center',
+                  transition: 'transform 0.2s'
+                }} className="action-row-hover">
+                  <div className={a.priority === 'HIGH' ? 'status-pulse' : ''} style={{ color: a.type === 'payment' ? 'var(--success)' : 'var(--warning)', display: 'flex' }}>
+                    {a.type === 'payment' ? <CheckCircle size={18} /> : <Clock size={18} />}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 600, fontSize: 13, color: 'var(--text-primary)' }}>{a.action}</div>
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>{a.reason}</div>
+                  </div>
+                  <span className={`badge ${a.priority === 'HIGH' ? 'badge-danger' : 'badge-warning'}`} style={{ fontSize: 9, minWidth: 60, justifyContent: 'center' }}>
+                    {a.priority}
+                  </span>
+                </div>
+              ))}
+              <div style={{ marginTop: 10, textAlign: 'center' }}>
+                <a href="/actions" className="btn btn-ghost btn-sm" style={{ width: '100%', justifyContent: 'center', borderRadius: 8 }}>
+                  Open Full Strategy Console <ArrowUpRight size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* AI Intelligence & Explainability Panel */}
       {forecastData && (
         <div className="card section-gap" style={{ border: '1px solid var(--accent)' }}>
-          <div className="card-header" style={{ marginBottom: 16 }}>
+          <div className="card-header" style={{ marginBottom: 16, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontWeight: 800, fontSize: 16, display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent)' }}>
               <Cpu size={20} /> AI Agent Observability (Chain of Thought & SHAP)
             </span>
+            
+            {/* Confidence Meter */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)' }}>
+                System Confidence: {Math.round((forecastData.demand_forecast?.confidence || 0.85) * 100)}%
+              </div>
+              <div style={{ width: 80, height: 6, background: 'var(--bg-body)', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)' }}>
+                <div style={{ 
+                  width: `${(forecastData.demand_forecast?.confidence || 0.85) * 100}%`, 
+                  height: '100%', 
+                  background: 'linear-gradient(90deg, var(--warning), var(--accent))' 
+                }} />
+              </div>
+            </div>
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {/* Seasonal Insights Block */}
+            {forecastData.seasonal_insights?.upcoming_seasons?.length > 0 && (
+              <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--accent)' }}>
+                <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 10, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <Clock size={14} color="var(--accent)" /> Industry Seasonal Opportunities
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                  {forecastData.seasonal_insights.upcoming_seasons.map((s: any, i: number) => (
+                    <div key={i} className="badge badge-success" style={{ padding: '8px 14px', fontSize: 12, borderRadius: 20 }}>
+                      🚀 {s.name}: +{Math.round((s.multiplier - 1) * 100)}% expected surge
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Chain of Thought Block */}
             <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--purple)' }}>
               <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -231,7 +325,7 @@ export default function Dashboard() {
             <div className="grid-2" style={{ gap: 16 }}>
               <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--cyan)' }}>
                 <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--text-muted)' }}>
-                  SARIMAX Revenue SHAP Explainability
+                  SARIMAX Revenue SHAP
                 </div>
                 <div style={{ fontSize: 13, lineHeight: 1.5 }}>
                   {forecastData.revenue_forecast?.explanation || "Base trend unchanged."}
@@ -240,7 +334,7 @@ export default function Dashboard() {
 
               <div style={{ background: 'var(--bg-body)', padding: 16, borderRadius: 8, borderLeft: '4px solid var(--warning)' }}>
                 <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--text-muted)' }}>
-                  LSTM Demand SHAP Explainability
+                  LSTM Demand SHAP
                 </div>
                 <div style={{ fontSize: 13, lineHeight: 1.5 }}>
                   {forecastData.demand_forecast?.explanation || "Base trend unchanged."}

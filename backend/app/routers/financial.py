@@ -58,6 +58,8 @@ def get_dashboard():
         "shortfall_detected": result["shortfall"]["shortfall_detected"],
         "production_units_month": state.production.units_this_month if state.production else 0,
         "production_target": state.production.monthly_target if state.production else 0,
+        "explanation": result["explanation"],
+        "actions": result["actions"]["actions"]
     }
 
 

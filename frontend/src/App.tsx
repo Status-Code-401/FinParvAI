@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, TrendingUp, CreditCard, Users, Package,
-  Mail, Upload, BookOpen, BarChart3, Landmark
+  Mail, Upload, BarChart3, Landmark
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import CashFlow from './pages/CashFlow';
@@ -12,6 +12,7 @@ import Actions from './pages/Actions';
 import Ingest from './pages/Ingest';
 import Forecast from './pages/Forecast';
 import Transactions from './pages/Transactions';
+import Login from './pages/Login';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
@@ -27,6 +28,14 @@ const actionItems = [
   { to: '/transactions', icon: Landmark, label: 'Transactions' },
   { to: '/ingest', icon: Upload, label: 'Upload Data' },
 ];
+
+function isAuthed() {
+  return sessionStorage.getItem('fp_auth') === 'true';
+}
+
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  return isAuthed() ? <>{children}</> : <Navigate to="/login" replace />;
+}
 
 function Sidebar() {
   return (
@@ -81,25 +90,35 @@ function Topbar() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="app-shell">
-        <Sidebar />
-        <div className="main-area">
-          <Topbar />
-          <div className="page-content">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/cash-flow" element={<CashFlow />} />
-              <Route path="/obligations" element={<Obligations />} />
-              <Route path="/receivables" element={<Receivables />} />
-              <Route path="/inventory" element={<Inventory />} />
-              <Route path="/actions" element={<Actions />} />
-              <Route path="/forecast" element={<Forecast />} />
-              <Route path="/transactions" element={<Transactions />} />
-              <Route path="/ingest" element={<Ingest />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute>
+              <div className="app-shell">
+                <Sidebar />
+                <div className="main-area">
+                  <Topbar />
+                  <div className="page-content">
+                    <Routes>
+                      <Route path="/" element={<Dashboard />} />
+                      <Route path="/cash-flow" element={<CashFlow />} />
+                      <Route path="/obligations" element={<Obligations />} />
+                      <Route path="/receivables" element={<Receivables />} />
+                      <Route path="/inventory" element={<Inventory />} />
+                      <Route path="/actions" element={<Actions />} />
+                      <Route path="/forecast" element={<Forecast />} />
+                      <Route path="/transactions" element={<Transactions />} />
+                      <Route path="/ingest" element={<Ingest />} />
+                    </Routes>
+                  </div>
+                </div>
+              </div>
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }

@@ -15,6 +15,36 @@ except ImportError:
 
 TODAY = datetime.now().date()
 
+# Garment Industry Seasonal Patterns (India-centric)
+PEAK_SEASONS = {
+    1: {"name": "Pongal / Sankranti", "multiplier": 1.25},
+    4: {"name": "Summer Launch", "multiplier": 1.15},
+    8: {"name": "Onam / Aadi", "multiplier": 1.10},
+    10: {"name": "Diwali / Dussehra", "multiplier": 1.45},
+    11: {"name": "Diwali Season", "multiplier": 1.25},
+    12: {"name": "Wedding / New Year", "multiplier": 1.30}
+}
+
+def calculate_confidence(history_length: int, context_multiplier: float, variance: float = 0.0) -> float:
+    """
+    Hybrid Confidence Score (0.0 - 1.0)
+    Based on data volume, agent signal stability, and statistical variance.
+    """
+    # 1. Volume Factor (40%)
+    volume_score = min(history_length / 12.0, 1.0) * 0.4
+    
+    # 2. Signal Stability (40%)
+    # Multipliers very far from 1.0 (e.g. 0.5 or 2.0) indicate high volatility/risk
+    deviation = abs(1.0 - context_multiplier)
+    stability_score = max(0, (1.0 - (deviation * 0.8))) * 0.4
+    
+    # 3. Variance Factor (20%)
+    # Lower variance relative to mean = higher confidence
+    variance_score = 0.2 if variance < 0.1 else 0.1 if variance < 0.3 else 0.05
+    
+    total = volume_score + stability_score + variance_score
+    return round(max(0.4, min(total, 0.98)), 2)
+
 # ==========================================
 # LSTM Model for Demand / Cash Flow
 # ==========================================
@@ -102,6 +132,11 @@ def forecast_revenue(monthly_income: List[float], periods: int = 3, context_mult
         forecast_adjusted = [round(v * context_multiplier, 2) for v in forecast]
         trend = "up" if forecast_adjusted[-1] > monthly_income[-1] else "down"
         
+        # Calculate Confidence
+        # Higher variance in the fit = lower confidence
+        fit_variance = np.var(fit_model.resid) if hasattr(fit_model, 'resid') else 0.0
+        conf_score = calculate_confidence(n, context_multiplier, fit_variance)
+
         # Simple Explainability feature tracking
         shap_explanation = f"Base SARIMAX projection was {round(forecast[0], 2)}. " \
                            f"Context multiplier of {context_multiplier} shifted this to {forecast_adjusted[0]}."
@@ -110,12 +145,12 @@ def forecast_revenue(monthly_income: List[float], periods: int = 3, context_mult
             "historical": monthly_income,
             "forecast": forecast_adjusted,
             "trend": trend,
-            "confidence": 0.85,
+            "confidence": conf_score,
             "explanation": shap_explanation
         }
     except Exception as e:
         print(f"SARIMAX failed, falling back: {e}")
-        return {"forecast": [monthly_income[-1] * context_multiplier] * periods, "trend": "flat", "confidence": 0.5}
+        return {"forecast": [monthly_income[-1] * context_multiplier] * periods, "trend": "flat", "confidence": 0.45}
 
 # ==========================================
 # Explainability (SHAP Simulation)
@@ -163,11 +198,15 @@ def generate_demand_forecast(units_history: List[int], days: int = 30, demand_mu
     trend_slope = adjusted_forecast[-1] - adjusted_forecast[0]
     trend = "increasing" if trend_slope > 5 else "decreasing" if trend_slope < -5 else "stable"
 
+    # Confidence calculation for LSTM
+    conf_score = calculate_confidence(len(units_history), demand_multiplier)
+
     avg = sum(units_history) / len(units_history)
     return {
         "avg_daily_units": round(avg),
         "forecast_units": adjusted_forecast,
         "trend": trend,
+        "confidence": conf_score,
         "explanation": generate_shap_explanation(base_forecast[0], adjusted_forecast[0], {"Agent Demand Multiplier": demand_multiplier})
     }
 
@@ -186,17 +225,31 @@ def compute_seasonal_insights(monthly_data: List[Dict]) -> Dict:
     peaks = [m for m in monthly_data if m.get("income", 0) > avg_income * 1.1]
     troughs = [m for m in monthly_data if m.get("income", 0) < avg_income * 0.9]
 
+    # Garment-specific Logic: Detect Upcoming Festivals
+    current_month = datetime.now().month
+    upcoming_peaks = []
+    for month_offset in range(1, 4): # Check next 3 months
+        check_month = (current_month + month_offset - 1) % 12 + 1
+        if check_month in PEAK_SEASONS:
+            upcoming_peaks.append(PEAK_SEASONS[check_month])
+
+    insights = [
+        "Analyzed historical variance using statistical bounds.",
+        f"Detected {len(peaks)} historical revenue peaks and {len(troughs)} troughs."
+    ]
+    
+    for up in upcoming_peaks:
+        insights.append(f"⚠️ Upcoming Season: {up['name']} expected to increase demand by {int((up['multiplier']-1)*100)}%.")
+
     return {
         "avg_monthly_income": round(avg_income, 2),
         "avg_monthly_expense": round(avg_expense, 2),
         "peak_months": [m["month"] for m in peaks],
         "low_months": [m["month"] for m in troughs],
+        "upcoming_seasons": upcoming_peaks,
         "income_volatility": round(
             math.sqrt(sum((v - avg_income) ** 2 for v in incomes) / len(incomes)) if incomes else 0, 2
         ),
-        "insights": [
-            "Analyzed historical variance using statistical bounds.",
-            "Algorithm detected periodic spikes corresponding to potential seasonality."
-        ]
+        "insights": insights
     }
 
