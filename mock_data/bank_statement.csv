@@ -1,0 +1,53 @@
+transaction_id,date,description,debit,credit,balance,category
+TXN001,2026-01-02,Opening Balance,,,85000.00,
+TXN002,2026-01-03,Client Payment - StyleMart Retail,,45000.00,130000.00,receivable_collection
+TXN003,2026-01-05,ABC Textiles - Fabric Purchase,18000.00,,112000.00,vendor_payment
+TXN004,2026-01-07,TNEB Electricity Bill,3200.00,,108800.00,utility
+TXN005,2026-01-08,Google Ads Campaign,5000.00,,103800.00,marketing
+TXN006,2026-01-10,Client Payment - FashionHub,,30000.00,133800.00,receivable_collection
+TXN007,2026-01-12,Royal Threads - Thread & Accessories,4500.00,,129300.00,vendor_payment
+TXN008,2026-01-14,Staff Salaries,28000.00,,101300.00,salary
+TXN009,2026-01-15,Client Payment - TrendZone Exports,,55000.00,156300.00,receivable_collection
+TXN010,2026-01-17,Logistics - Bluedart Courier,2200.00,,154100.00,logistics
+TXN011,2026-01-18,Krishna Dyes & Chemicals,7800.00,,146300.00,vendor_payment
+TXN012,2026-01-20,Office Rent,12000.00,,134300.00,rent
+TXN013,2026-01-22,Client Payment - StyleMart Retail,,38000.00,172300.00,receivable_collection
+TXN014,2026-01-24,ABC Textiles - Fabric Purchase,22000.00,,150300.00,vendor_payment
+TXN015,2026-01-26,Instagram Ads,3000.00,,147300.00,marketing
+TXN016,2026-01-28,Sundaram Buttons & Accessories,1800.00,,145500.00,vendor_payment
+TXN017,2026-01-30,Client Payment - NovaTex Wholesale,,42000.00,187500.00,receivable_collection
+TXN018,2026-01-31,Miscellaneous Expense,1500.00,,186000.00,misc
+TXN019,2026-02-02,Client Payment - FashionHub,,28000.00,214000.00,receivable_collection
+TXN020,2026-02-03,ABC Textiles - Fabric Purchase,20000.00,,194000.00,vendor_payment
+TXN021,2026-02-05,TNEB Electricity Bill,3400.00,,190600.00,utility
+TXN022,2026-02-07,Staff Salaries,28000.00,,162600.00,salary
+TXN023,2026-02-09,Royal Threads,5200.00,,157400.00,vendor_payment
+TXN024,2026-02-10,Client Payment - StyleMart Retail,,50000.00,207400.00,receivable_collection
+TXN025,2026-02-12,Google Ads Campaign,5000.00,,202400.00,marketing
+TXN026,2026-02-13,Krishna Dyes & Chemicals,8500.00,,193900.00,vendor_payment
+TXN027,2026-02-15,Logistics - Bluedart Courier,1900.00,,192000.00,logistics
+TXN028,2026-02-17,Client Payment - TrendZone Exports,,60000.00,252000.00,receivable_collection
+TXN029,2026-02-18,Office Rent,12000.00,,240000.00,rent
+TXN030,2026-02-20,ABC Textiles - Fabric Purchase,25000.00,,215000.00,vendor_payment
+TXN031,2026-02-21,Sundaram Buttons & Accessories,2100.00,,212900.00,vendor_payment
+TXN032,2026-02-23,Client Payment - NovaTex Wholesale,,35000.00,247900.00,receivable_collection
+TXN033,2026-02-25,Instagram Ads,3500.00,,244400.00,marketing
+TXN034,2026-02-26,Miscellaneous Expense,2000.00,,242400.00,misc
+TXN035,2026-02-28,Staff Salaries,28000.00,,214400.00,salary
+TXN036,2026-03-01,Client Payment - FashionHub,,32000.00,246400.00,receivable_collection
+TXN037,2026-03-03,ABC Textiles - Fabric Purchase,15000.00,,231400.00,vendor_payment
+TXN038,2026-03-05,TNEB Electricity Bill,3100.00,,228300.00,utility
+TXN039,2026-03-07,Royal Threads,4800.00,,223500.00,vendor_payment
+TXN040,2026-03-08,Client Payment - StyleMart Retail,,48000.00,271500.00,receivable_collection
+TXN041,2026-03-10,Google Ads Campaign,5000.00,,266500.00,marketing
+TXN042,2026-03-12,Staff Salaries,28000.00,,238500.00,salary
+TXN043,2026-03-13,Krishna Dyes & Chemicals,9000.00,,229500.00,vendor_payment
+TXN044,2026-03-14,Logistics - Bluedart Courier,2500.00,,227000.00,logistics
+TXN045,2026-03-15,Office Rent,12000.00,,215000.00,rent
+TXN046,2026-03-17,Client Payment - TrendZone Exports,,40000.00,255000.00,receivable_collection
+TXN047,2026-03-18,Sundaram Buttons & Accessories,1600.00,,253400.00,vendor_payment
+TXN048,2026-03-19,ABC Textiles - Partial Payment,10000.00,,243400.00,vendor_payment
+TXN049,2026-03-20,Instagram Ads,3000.00,,240400.00,marketing
+TXN050,2026-03-22,Client Payment - NovaTex Wholesale,,25000.00,265400.00,receivable_collection
+TXN051,2026-03-24,Miscellaneous Expense,800.00,,264600.00,misc
+TXN052,2026-03-25,Current Balance (Opening for Engine),,,45000.00,
