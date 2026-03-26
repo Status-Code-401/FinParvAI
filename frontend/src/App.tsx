@@ -44,11 +44,9 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return isAuthed() ? <>{children}</> : <Navigate to="/login" replace />;
 }
 
-/** Wraps a gated page — redirects to /upload if no data has been uploaded yet. */
+/** Wraps a gated page — NO LONGER REDIRECTS to allow mock view. */
 function GatedRoute({ children }: { children: React.ReactNode }) {
-  if (!isDataReady()) {
-    return <Navigate to="/upload" replace />;
-  }
+  // Lock removed as per user request to allow dashboard access with mock data initially
   return <>{children}</>;
 }
 
@@ -66,7 +64,7 @@ function Sidebar() {
     const { to, icon: Icon, label, sub, gated } = item;
     const locked = gated && !ready;
 
-    if (locked) {
+    if (locked && false) { // Forced false to unlock as per user request
       return (
         <div
           key={to}
@@ -113,7 +111,7 @@ function Sidebar() {
       <div className="sidebar-section-label">Tools</div>
       {toolItems.map(renderItem)}
 
-      {!ready && (
+      {/* {!ready && (
         <div style={{
           margin: '16px 12px', padding: '10px 12px', borderRadius: 8,
           background: 'rgba(79,142,247,0.08)', border: '1px solid rgba(79,142,247,0.2)',
@@ -122,7 +120,7 @@ function Sidebar() {
           <Lock size={14} style={{ marginBottom: 4 }} /><br />
           Upload at least one document to unlock all dashboards
         </div>
-      )}
+      )} */}
 
       <div style={{ marginTop: 'auto', padding: '16px 8px 8px' }}>
         <button className="nav-item btn-ghost" style={{ width: '100%', border: 'none', cursor: 'pointer', background: 'none' }} onClick={handleLogout}>

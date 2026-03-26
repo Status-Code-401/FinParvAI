@@ -1,9 +1,13 @@
 from fastapi import APIRouter, HTTPException
 from app.services.decision_engine import run_engine, simulate_cash_flow, calculate_runway
 from app.services.email_generator import generate_all_emails
-from app.services.data_ingestion import load_normalized_state, enrich_from_ledger
+from app.services.data_ingestion import (
+    load_normalized_state, enrich_from_ledger, 
+    _parse_normalized_state, enrich_from_ledger_dict
+)
 from app.services.predictive_engine import forecast_revenue, compute_seasonal_insights, generate_demand_forecast
 from app.services.context_agents import WebCrawlingAgent, ContextAnalysisAgent
+from app.services.database import db
 import os
 import json
 
@@ -12,15 +16,23 @@ router = APIRouter(prefix="/api", tags=["financials"])
 MOCK_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "mock_data")
 
 
+BUSINESS_ID = 1
+
 def _load_state():
-    state = load_normalized_state(os.path.join(MOCK_DATA_DIR, "normalized_financial_state.json"))
-    state = enrich_from_ledger(state, os.path.join(MOCK_DATA_DIR, "ledger_data.json"))
+    """Load financial state from DB (with transparent mock fallback)."""
+    state_dict = db.get_financial_state(BUSINESS_ID)
+    state = _parse_normalized_state(state_dict)
+    
+    # Enrich with ledger data (also from DB/mock)
+    ledger_dict = db.get_ledger(BUSINESS_ID)
+    state = enrich_from_ledger_dict(state, ledger_dict)
+    
     return state
 
 
 def _load_ledger():
-    with open(os.path.join(MOCK_DATA_DIR, "ledger_data.json")) as f:
-        return json.load(f)
+    """Load ledger data from DB (with transparent mock fallback)."""
+    return db.get_ledger(BUSINESS_ID)
 
 
 @router.get("/financial-state")
@@ -209,6 +221,10 @@ def get_forecast():
     monthly_expenses = [m["expense"] for m in monthly_data]
 
     # Agent Layer: Extract context multiplier
+    signals = {}
+    agent_reasoning = "Market signals stable."
+    multiplier = 1.0
+
     try:
         crawler = WebCrawlingAgent()
         signals = crawler.gather_signals()
@@ -217,8 +233,8 @@ def get_forecast():
         multiplier = context.get("demand_multiplier", 1.0)
         agent_reasoning = context.get("reasoning", "")
     except Exception as e:
-        multiplier = 1.0
-        agent_reasoning = "Agents unavailable."
+        print(f"Agent analysis failed: {e}")
+        agent_reasoning = "Live market context temporarily unavailable — using calendar baseline."
 
     revenue_forecast = forecast_revenue(monthly_incomes, periods=3, context_multiplier=multiplier)
     seasonal = compute_seasonal_insights(monthly_data)
@@ -227,6 +243,16 @@ def get_forecast():
     prod_data = ledger.get("production_data", {}).get("daily_production", {})
     prod_units = list(prod_data.values()) if prod_data else []
     demand_forecast = generate_demand_forecast(prod_units, days=30, demand_multiplier=multiplier)
+
+    # Merge agent signals into seasonal insights for the frontend to display
+    seasonal.update({
+        "market_sentiment": signals.get("market_sentiment", "neutral"),
+        "sentiment_summary": signals.get("sentiment_summary", ""),
+        "action_insight": signals.get("action_insight", ""),
+        "source_links": signals.get("source_links", []),
+        "news_source": signals.get("news_source", "fallback"),
+        "upcoming_festivals": signals.get("upcoming_festivals", []),
+    })
 
     return {
         "revenue_forecast": revenue_forecast,
@@ -246,15 +272,12 @@ def get_ledger():
 
 @router.get("/transactions")
 def get_transactions():
-    """Return recent transaction history."""
+    """Return recent transaction history from DB."""
     state = _load_state()
-    with open(os.path.join(MOCK_DATA_DIR, "bank_statement.csv")) as f:
-        content = f.read()
-    from app.services.data_ingestion import parse_bank_statement_csv
-    transactions = parse_bank_statement_csv(content)
+    # Pull from the state object which already came from DB/Mock
     return {
-        "transactions": [t.dict() for t in transactions],
-        "total": len(transactions)
+        "transactions": [t.dict() for t in state.transactions],
+        "total": len(state.transactions)
     }
 
 

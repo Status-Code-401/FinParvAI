@@ -203,7 +203,7 @@
                 }
             ],
             "risk_level": "medium",
-            "notes": "Occasional delays. Currently has overdue invoice of ₹25,000. Needs follow-up."
+            "notes": "Occasional delays. Currently has overdue invoice of â‚¹25,000. Needs follow-up."
         },
         {
             "client_id": "C005",
@@ -448,7 +448,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-D54DC751",
+            "payable_id": "PAY-9B4DB56F",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -458,7 +458,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-92BB5D47",
+            "payable_id": "PAY-B1D94DE2",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -468,7 +468,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-DDDC3A3A",
+            "payable_id": "PAY-79C89655",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -478,7 +478,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-AAEBC013",
+            "payable_id": "PAY-3B5CA7A6",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -488,7 +488,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-36777E2A",
+            "payable_id": "PAY-CAD992A2",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -498,7 +498,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-CDC563FF",
+            "payable_id": "PAY-7203D03D",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -508,7 +508,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-BCD21FBB",
+            "payable_id": "PAY-ED7BE1D4",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -518,7 +518,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-5D29A648",
+            "payable_id": "PAY-C87A14D7",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -528,7 +528,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-7E255E69",
+            "payable_id": "PAY-B68C59D9",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -538,7 +538,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-DBB2E967",
+            "payable_id": "PAY-0EF40A2C",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -548,7 +548,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-485C2985",
+            "payable_id": "PAY-C2BDAD62",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -558,7 +558,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-A86DD49A",
+            "payable_id": "PAY-8A5F9100",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -568,7 +568,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-F7EB4E6F",
+            "payable_id": "PAY-C299F91E",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -578,7 +578,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-3DB27F63",
+            "payable_id": "PAY-508B9F04",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -588,7 +588,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-451C59DA",
+            "payable_id": "PAY-2121159F",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -598,7 +598,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-5CCBFA45",
+            "payable_id": "PAY-055CFF13",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -608,7 +608,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-4DFFA338",
+            "payable_id": "PAY-27E98246",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -618,7 +618,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-B54FEA76",
+            "payable_id": "PAY-52B9DD7E",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -628,7 +628,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-B8BE5868",
+            "payable_id": "PAY-9DBD4D82",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -638,7 +638,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-BCBB7503",
+            "payable_id": "PAY-C7867090",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -648,7 +648,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-7448471D",
+            "payable_id": "PAY-74B9C1F3",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -658,7 +658,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-B778D40E",
+            "payable_id": "PAY-7CB5D543",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -668,7 +668,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-B0EF18D5",
+            "payable_id": "PAY-0F4FD6AF",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -678,7 +678,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-D82DDC75",
+            "payable_id": "PAY-2E2654AF",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -688,7 +688,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-F945ADE3",
+            "payable_id": "PAY-8E56E0F8",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -698,7 +698,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-D9BACE08",
+            "payable_id": "PAY-3335B3A2",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -708,7 +708,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-FED53ACC",
+            "payable_id": "PAY-86BA313E",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -718,7 +718,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-53127B5A",
+            "payable_id": "PAY-8EEA2494",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -728,7 +728,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-FF859422",
+            "payable_id": "PAY-0467DCAE",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -738,7 +738,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-0EB099C9",
+            "payable_id": "PAY-21CD387A",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -748,7 +748,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-F7AB111B",
+            "payable_id": "PAY-B1EF3961",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -758,7 +758,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-2EA10135",
+            "payable_id": "PAY-F53FE8C9",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -768,7 +768,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-8F58A002",
+            "payable_id": "PAY-6E7D9E8B",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -778,7 +778,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-BCCD8101",
+            "payable_id": "PAY-B3B29B09",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -788,7 +788,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-61E2A597",
+            "payable_id": "PAY-6D70D7E5",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -798,7 +798,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-41A37B38",
+            "payable_id": "PAY-3C970C4D",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -808,7 +808,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-31EA65D7",
+            "payable_id": "PAY-A76CC964",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -818,7 +818,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-0D469B07",
+            "payable_id": "PAY-FF298F7F",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",
@@ -828,327 +828,7 @@
             "description": "utility"
         },
         {
-            "payable_id": "PAY-2D67A47F",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-4897A8F8",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-8BADBD28",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-F2C1E950",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-64152988",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-B0A55BCC",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-3B1E79CD",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-9396682D",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-3CD6985B",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-2134E869",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-9D529651",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-A23EC7CE",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-0AD2FC13",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-0E5A94C6",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-66C04523",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-7647C4FF",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-B1989E19",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-F925C256",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-5F1D69ED",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-467A8EF4",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-AA0B467D",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-5FA49985",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-58E55F73",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-841D4620",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-8FB405C3",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-D4C7CE1B",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-282F3E93",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-F92B9744",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-ACE5CB51",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-9B7EDC4C",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-AFA9B1F4",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-A230A809",
-            "vendor": "FastTech Supplies",
-            "amount": 4500.0,
-            "due_date": "2026-04-05",
-            "type": "flexible",
-            "status": "unpaid",
-            "priority_score": 0.5,
-            "description": "utility"
-        },
-        {
-            "payable_id": "PAY-48EB1185",
+            "payable_id": "PAY-1B438A2C",
             "vendor": "FastTech Supplies",
             "amount": 4500.0,
             "due_date": "2026-04-05",

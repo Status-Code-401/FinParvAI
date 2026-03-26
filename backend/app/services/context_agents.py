@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta
 from typing import Any
 
@@ -13,7 +14,10 @@ from typing import Any
 
 try:
     import httpx
-    from bs4 import BeautifulSoup
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        BeautifulSoup = None  # type: ignore[assignment, misc]
     SCRAPING_AVAILABLE = True
 except ImportError:
     SCRAPING_AVAILABLE = False
@@ -44,11 +48,16 @@ POSITIVE_KEYWORDS = [
     "demand surge", "high demand", "sales up", "festive rush", "strong orders",
     "export growth", "textile boom", "garment orders up", "apparel surge",
     "consumption up", "retail growth", "fashion week", "wedding season",
+    "order book full", "surplus revenue", "capacity utilization up", "market recovery",
+    "favourable policy", "cotton price drop", "import duty cut",
+    "textile park", "investment", "cluster", "pm mitra", "economic zone",
 ]
 NEGATIVE_KEYWORDS = [
     "demand slump", "slowdown", "low demand", "export decline", "recession",
     "orders fall", "sales down", "textile slump", "apparel decline",
     "weavers distress", "job cuts", "cotton prices rise", "demand weak",
+    "power shortage", "labour shortage", "inventory pileup", "shipment delay",
+    "raw material spike", "input cost high", "global slowdown",
 ]
 
 
@@ -76,8 +85,9 @@ def _scrape_news_sentiment() -> dict:
     Falls back gracefully if network is unavailable.
     """
     RSS_URLS = [
-        "https://news.google.com/rss/search?q=India+garment+textile+demand&hl=en-IN&gl=IN&ceid=IN:en",
-        "https://news.google.com/rss/search?q=Indian+apparel+industry+market&hl=en-IN&gl=IN&ceid=IN:en",
+        "https://news.google.com/rss/search?q=Tamil+Nadu+garment+industry+news&hl=en-IN&gl=IN&ceid=IN:en",
+        "https://news.google.com/rss/search?q=India+textile+manufacturing+demand&hl=en-IN&gl=IN&ceid=IN:en",
+        "https://news.google.com/rss/search?q=apparel+export+india+surge+drop&hl=en-IN&gl=IN&ceid=IN:en",
     ]
 
     articles: list[dict] = []  # [{"title": str, "url": str}]
@@ -308,8 +318,12 @@ class ContextAnalysisAgent:
         pos = signals.get("positive_news_signals", 0)
         neg = signals.get("negative_news_signals", 0)
         news_src = signals.get("news_source", "fallback")
+        headlines = signals.get("headlines", [])
+        is_tn_relevant = any("tamil nadu" in h.lower() or "tirupur" in h.lower() or "chennai" in h.lower() for h in headlines)
+        
+        region_note = " (Detected regional signals for Tamil Nadu/Tirupur.)" if is_tn_relevant else ""
         news_note = (
-            f" (Based on {pos} positive and {neg} negative signals from live news.)"
+            f" (Based on {pos} positive and {neg} negative signals from live news.{region_note})"
             if news_src == "google_news_rss" else " (Live news unavailable — using calendar only.)"
         )
 

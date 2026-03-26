@@ -144,16 +144,16 @@ def seed():
         raw_invoices = load("invoices.json")
         receivables_list = []
         # Filter for only unpaid or recently paid ones
-        for inv in raw_invoices:
+        for inv_doc in raw_invoices:
              receivables_list.append({
                 "business_id": BUSINESS_ID,
-                "invoice_id":  inv.get("invoice_id"),
-                "client":      inv.get("client"),
-                "amount":      inv.get("amount"),
-                "invoice_date":inv.get("date"),
-                "due_date":    inv.get("due_date"),
-                "status":      inv.get("status"),
-                "collection_probability": 0.9 if inv.get("status") == "paid" else 0.7
+                "invoice_id":  inv_doc.get("invoice_id"),
+                "client":      inv_doc.get("client"),
+                "amount":      inv_doc.get("amount"),
+                "invoice_date":inv_doc.get("date"),
+                "due_date":    inv_doc.get("due_date"),
+                "status":      inv_doc.get("status"),
+                "collection_probability": 0.9 if inv_doc.get("status") == "paid" else 0.7
             })
         upsert("receivables", receivables_list, conflict_col="business_id,invoice_id")
     except:

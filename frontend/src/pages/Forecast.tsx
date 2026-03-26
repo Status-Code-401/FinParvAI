@@ -237,11 +237,6 @@ export default function Forecast() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <SentimentPill sentiment={sentiment} />
-            <span style={{ fontSize: 11, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}>
-              {newsSource === 'google_news_rss'
-                ? <><Wifi size={11} /> Live via Google News RSS</>
-                : <><WifiOff size={11} /> Calendar-based (news unavailable)</>}
-            </span>
           </div>
         </div>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0, paddingBottom: 10 }}>

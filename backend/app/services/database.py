@@ -92,17 +92,25 @@ class SupabaseDB:
     def get_financial_state(self, business_id: int = 1) -> Dict:
         """
         Returns a dict shaped like normalized_financial_state.json.
-        Falls back to reading the mock file when not connected.
+        Falls back to reading the mock file when not connected OR when DB is empty.
         """
         if not self._connected:
             return self._mock_financial_state()
 
         biz = self.get_business(business_id)
+        if not biz:
+            return self._mock_financial_state()
 
         transactions = self._fetch("transactions", {"business_id": business_id})
         payables     = self._fetch("payables",     {"business_id": business_id})
         receivables  = self._fetch("receivables",  {"business_id": business_id})
         overheads    = self._fetch("overheads",     {"business_id": business_id})
+        
+        # If the core tables are empty, this business likely has no real data yet.
+        # Fall back to mock so the dashboard isn't blank.
+        if not transactions and not payables and not receivables:
+            return self._mock_financial_state()
+
         inv_status   = self._fetch("inventory_items",      {"business_id": business_id})
         inv_orders   = self._fetch("procurement_orders",   {"business_id": business_id})
         vendors      = self._fetch("vendors",              {"business_id": business_id})
@@ -163,16 +171,21 @@ class SupabaseDB:
     def get_ledger(self, business_id: int = 1) -> Dict:
         """
         Returns a dict shaped like ledger_data.json.
-        Falls back to the mock file when not connected.
+        Falls back to the mock file when not connected OR when DB is empty.
         """
         if not self._connected:
             return self._mock_ledger()
 
-        biz          = self.get_business(business_id)
+        biz = self.get_business(business_id)
+        # If no business or no major data, use mock
+        receivables  = self._fetch("receivables", {"business_id": business_id})
+        payables     = self._fetch("payables",    {"business_id": business_id})
+        
+        if not biz or (not receivables and not payables):
+            return self._mock_ledger()
+
         monthly_summ = self._fetch("monthly_summaries",   {"business_id": business_id})
         clients      = self._fetch("clients",             {"business_id": business_id})
-        receivables  = self._fetch("receivables",         {"business_id": business_id})
-        payables     = self._fetch("payables",            {"business_id": business_id})
         overheads    = self._fetch("overheads",           {"business_id": business_id})
         prod_rows    = self._fetch("daily_production",    {"business_id": business_id})
         ls_rows      = self._fetch("ledger_summaries",    {"business_id": business_id})

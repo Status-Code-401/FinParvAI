@@ -1,138 +1,138 @@
 {
-  "invoices": [
-    {
-      "invoice_id": "VINV-2026-ABC-031",
-      "type": "vendor_invoice",
-      "vendor": "ABC Textiles",
-      "vendor_gstin": "33AABCA5678B1Z2",
-      "invoice_number": "AT/2026/0312",
-      "invoice_date": "2026-03-23",
-      "due_date": "2026-03-30",
-      "line_items": [
+    "invoices": [
         {
-          "description": "Cotton Fabric White 60\" width",
-          "hsn_code": "5208",
-          "quantity": 500,
-          "unit": "meters",
-          "unit_price": 45,
-          "amount": 22500
-        }
-      ],
-      "subtotal": 22500,
-      "gst_rate": 0.05,
-      "gst_amount": 1125,
-      "total": 23625,
-      "payment_terms": "NET-7",
-      "status": "unpaid"
-    },
-    {
-      "invoice_id": "CINV-2026-SM-026",
-      "type": "client_invoice",
-      "client": "StyleMart Retail",
-      "client_gstin": "27AABCS9012C1Z8",
-      "invoice_number": "SLG/2026/0326",
-      "invoice_date": "2026-03-22",
-      "due_date": "2026-03-27",
-      "line_items": [
-        {
-          "description": "Men's Cotton Shirt (M, L, XL Assorted)",
-          "hsn_code": "6205",
-          "quantity": 200,
-          "unit": "pieces",
-          "unit_price": 185,
-          "amount": 37000
+            "invoice_id": "VINV-2026-ABC-031",
+            "type": "vendor_invoice",
+            "vendor": "ABC Textiles",
+            "vendor_gstin": "33AABCA5678B1Z2",
+            "invoice_number": "AT/2026/0312",
+            "invoice_date": "2026-03-23",
+            "due_date": "2026-03-30",
+            "line_items": [
+                {
+                    "description": "Cotton Fabric White 60\" width",
+                    "hsn_code": "5208",
+                    "quantity": 500,
+                    "unit": "meters",
+                    "unit_price": 45,
+                    "amount": 22500
+                }
+            ],
+            "subtotal": 22500,
+            "gst_rate": 0.05,
+            "gst_amount": 1125,
+            "total": 23625,
+            "payment_terms": "NET-7",
+            "status": "unpaid"
         },
         {
-          "description": "Men's Cotton Trouser (32, 34, 36)",
-          "hsn_code": "6203",
-          "quantity": 81,
-          "unit": "pieces",
-          "unit_price": 185,
-          "amount": 14985
-        }
-      ],
-      "subtotal": 51985,
-      "gst_rate": 0.05,
-      "gst_amount": 2599,
-      "total": 54584,
-      "payment_terms": "NET-5",
-      "status": "unpaid"
-    },
-    {
-      "invoice_id": "CINV-2026-NT-025",
-      "type": "client_invoice",
-      "client": "NovaTex Wholesale",
-      "client_gstin": "36AABCN3456D1Z5",
-      "invoice_number": "SLG/2026/0322",
-      "invoice_date": "2026-03-08",
-      "due_date": "2026-03-22",
-      "line_items": [
+            "invoice_id": "CINV-2026-SM-026",
+            "type": "client_invoice",
+            "client": "StyleMart Retail",
+            "client_gstin": "27AABCS9012C1Z8",
+            "invoice_number": "SLG/2026/0326",
+            "invoice_date": "2026-03-22",
+            "due_date": "2026-03-27",
+            "line_items": [
+                {
+                    "description": "Men's Cotton Shirt (M, L, XL Assorted)",
+                    "hsn_code": "6205",
+                    "quantity": 200,
+                    "unit": "pieces",
+                    "unit_price": 185,
+                    "amount": 37000
+                },
+                {
+                    "description": "Men's Cotton Trouser (32, 34, 36)",
+                    "hsn_code": "6203",
+                    "quantity": 81,
+                    "unit": "pieces",
+                    "unit_price": 185,
+                    "amount": 14985
+                }
+            ],
+            "subtotal": 51985,
+            "gst_rate": 0.05,
+            "gst_amount": 2599,
+            "total": 54584,
+            "payment_terms": "NET-5",
+            "status": "unpaid"
+        },
         {
-          "description": "Ladies Kurti (S, M, L)",
-          "hsn_code": "6206",
-          "quantity": 135,
-          "unit": "pieces",
-          "unit_price": 185,
-          "amount": 24975
-        }
-      ],
-      "subtotal": 24975,
-      "gst_rate": 0.05,
-      "gst_amount": 1249,
-      "total": 26224,
-      "payment_terms": "NET-14",
-      "status": "overdue",
-      "days_overdue": 3
-    },
-    {
-      "invoice_id": "VINV-2026-TNEB-031",
-      "type": "vendor_invoice",
-      "vendor": "TNEB (Tamil Nadu Electricity Board)",
-      "vendor_gstin": "33AABCT0001A1Z0",
-      "invoice_number": "TNEB/MAR26/48291",
-      "invoice_date": "2026-03-20",
-      "due_date": "2026-03-28",
-      "line_items": [
+            "invoice_id": "CINV-2026-NT-025",
+            "type": "client_invoice",
+            "client": "NovaTex Wholesale",
+            "client_gstin": "36AABCN3456D1Z5",
+            "invoice_number": "SLG/2026/0322",
+            "invoice_date": "2026-03-08",
+            "due_date": "2026-03-22",
+            "line_items": [
+                {
+                    "description": "Ladies Kurti (S, M, L)",
+                    "hsn_code": "6206",
+                    "quantity": 135,
+                    "unit": "pieces",
+                    "unit_price": 185,
+                    "amount": 24975
+                }
+            ],
+            "subtotal": 24975,
+            "gst_rate": 0.05,
+            "gst_amount": 1249,
+            "total": 26224,
+            "payment_terms": "NET-14",
+            "status": "overdue",
+            "days_overdue": 3
+        },
         {
-          "description": "Commercial Electricity - March 2026",
-          "units_consumed": 640,
-          "rate_per_unit": 5,
-          "amount": 3200
-        }
-      ],
-      "subtotal": 3200,
-      "gst_rate": 0,
-      "gst_amount": 0,
-      "total": 3200,
-      "payment_terms": "DUE-ON-DATE",
-      "status": "unpaid",
-      "penalty_on_late": "1.5% per month + disconnection"
-    },
-    {
-      "invoice_id": "CINV-2026-GX-027",
-      "type": "client_invoice",
-      "client": "GarmentX Direct",
-      "client_gstin": "29AABCG7890E1Z1",
-      "invoice_number": "SLG/2026/0318",
-      "invoice_date": "2026-03-07",
-      "due_date": "2026-03-18",
-      "line_items": [
+            "invoice_id": "VINV-2026-TNEB-031",
+            "type": "vendor_invoice",
+            "vendor": "TNEB (Tamil Nadu Electricity Board)",
+            "vendor_gstin": "33AABCT0001A1Z0",
+            "invoice_number": "TNEB/MAR26/48291",
+            "invoice_date": "2026-03-20",
+            "due_date": "2026-03-28",
+            "line_items": [
+                {
+                    "description": "Commercial Electricity - March 2026",
+                    "units_consumed": 640,
+                    "rate_per_unit": 5,
+                    "amount": 3200
+                }
+            ],
+            "subtotal": 3200,
+            "gst_rate": 0,
+            "gst_amount": 0,
+            "total": 3200,
+            "payment_terms": "DUE-ON-DATE",
+            "status": "unpaid",
+            "penalty_on_late": "1.5% per month + disconnection"
+        },
         {
-          "description": "Children's Cotton Frock (3-10 yrs, assorted)",
-          "hsn_code": "6209",
-          "quantity": 189,
-          "unit": "pieces",
-          "unit_price": 185,
-          "amount": 34965
+            "invoice_id": "CINV-2026-GX-027",
+            "type": "client_invoice",
+            "client": "GarmentX Direct",
+            "client_gstin": "29AABCG7890E1Z1",
+            "invoice_number": "SLG/2026/0318",
+            "invoice_date": "2026-03-07",
+            "due_date": "2026-03-18",
+            "line_items": [
+                {
+                    "description": "Children's Cotton Frock (3-10 yrs, assorted)",
+                    "hsn_code": "6209",
+                    "quantity": 189,
+                    "unit": "pieces",
+                    "unit_price": 185,
+                    "amount": 34965
+                }
+            ],
+            "subtotal": 34965,
+            "gst_rate": 0.05,
+            "gst_amount": 1748,
+            "total": 36713,
+            "payment_terms": "NET-11",
+            "status": "overdue",
+            "days_overdue": 7
         }
-      ],
-      "subtotal": 34965,
-      "gst_rate": 0.05,
-      "gst_amount": 1748,
-      "total": 36713,
-      "payment_terms": "NET-11",
-      "status": "overdue",
-      "days_overdue": 7
-    }
-  ]
+    ]
 }
