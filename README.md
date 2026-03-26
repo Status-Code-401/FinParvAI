@@ -1,4 +1,11 @@
-# FinParvai: Financial Decision Intelligence System
+
+# FinParvAI (நிதிப் பார்வை) — Financial Decision Intelligence
+
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+
 
 ## The Challenge
 Small and medium businesses (SMEs), particularly in industries like garment manufacturing, operate with fragmented visibility into upcoming financial obligations, payment timelines, and production-cost trade-offs. Existing tools function merely as static ledgers—they excel at recording historical data but fail to answer the critical operational question: "What exact action should I take today to survive and optimize?"
@@ -137,18 +144,19 @@ App: http://localhost:3000
 
 ---
 
-## Tech Stack
+## 📜 Technology Stack
 
-| Layer      | Technology                               |
-|------------|------------------------------------------|
-| Frontend   | React 18, TypeScript, Recharts           |
-| Backend    | FastAPI, Pydantic v2, Uvicorn            |
-| OCR        | Mock (plug in Google Vision / Textract)  |
-| Parsing    | Rule-based + regex (plug in LangChain)   |
-| Forecasting| Deterministic wave model (plug in LSTM)  |
-| DB         | Supabase (configure via env vars)        |
+| Layer | Component |
+| :--- | :--- |
+| **Frontend** | React, TypeScript, Recharts, Lucide Icons |
+| **Backend** | FastAPI, Pydantic, Python 3.10 |
+| **AI/ML** | SARIMAX (Statsmodels), LSTM (PyTorch), SHAP |
+| **Intelligence** | BeautifulSoup4, HTTPX, XML-RSS Feed Parsers |
+| **Database** | Supabase (PostgreSQL), Edge Functions |
+| **Design** | Custom Glassmorphism, CSS Custom Properties |
 
 ---
+
 
 ## Environment Variables (backend)
 
