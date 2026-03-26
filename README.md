@@ -1,8 +1,42 @@
-# FinParvai – Financial Decision Intelligence System
+# FinParvai: Financial Decision Intelligence System
 
-> Semi-autonomous financial copilot for SMEs. Track obligations, predict shortfalls, allocate payments, generate actions.
+## The Challenge
+Small and medium businesses (SMEs), particularly in industries like garment manufacturing, operate with fragmented visibility into upcoming financial obligations, payment timelines, and production-cost trade-offs. Existing tools function merely as static ledgers—they excel at recording historical data but fail to answer the critical operational question: "What exact action should I take today to survive and optimize?"
+
+## Our Solution: A Semi-Autonomous Financial Copilot
+FinParvai transforms finance from reactive tracking to proactive decision-making. We don't just show SMEs their finances—we tell them exactly what to do next, how to do it, and how confident they should be in that decision. 
+
+By continuously modeling a user's short-term financial state, monitoring inventory, and projecting liquidity runways, FinParvai acts as a semi-autonomous copilot that identifies risks *before* they occur and generates ready-to-execute recovery actions.
 
 ---
+
+## Innovation and Uniqueness
+
+FinParvai distinguishes itself through rigorous engineering, combining exact constraint satisfaction with forward-looking intelligence.
+
+### 1. Dual-Model Intelligence (Rare & Powerful)
+We architected a distinct separation between survival logic and growth forecasting:
+* **Deterministic Engine:** Provides exact, rule-based actions for current financial constraints. It allocates cash safely, ensuring critical obligations are met without mathematical hallucination.
+* **Predictive Layer:** Utilizes LSTM/SARIMAX time-series forecasting combined with a web-crawling agent that ingests external trends (e.g., upcoming festivals, market demand shifts, supply chain news). This layer anticipates future cash flow and advises on inventory improvements and overall cost reduction opportunities.
+* **The Result:** Impeccable immediate decision accuracy combined with intelligent forward-looking planning.
+
+### 2. Confidence Score for AI Predictions (Trust-Builder)
+Financial systems require absolute trust. FinParvai features a self-evaluating feedback loop. Every month, the system automatically compares its previous predictions (from the non-deterministic model) against the actual recorded financial flow of that month. It then generates a clear **Confidence Score** that is displayed to the user. As the system learns the business's unique operational rhythm, the score improves, helping users gradually rely on AI-driven strategic recommendations.
+
+### 3. Action-Oriented System
+Instead of presenting a dashboard of raw data and leaving the user to deduce a strategy, FinParvai provides clear, prioritized actions. If a cash shortfall is detected, the system outputs explicit directives: "Negotiate a 7-day payment delay with Vendor X," "Pull receivable from Client Y with a 3% incentive," or "Pause non-essential marketing spend." It removes ambiguity and enables fast, confident execution.
+
+### 4. Context-Aware Auto Negotiation
+Action requires communication. When FinParvai determines a payment must be delayed, it automatically drafts the vendor negotiation email. Crucially, the strategic approach and linguistic tone dynamically adapt based on the financial context, the urgency of the situation, and the historical relationship profile of the counterparty (shifting from "warm partner" to "professional").
+
+### 5. Smart Financial Calendar View
+Financial data is complex; visualizing it shouldn't be. 
+* **Unified Daily Snapshot:** Tracks expenses, income, production costs, and net cash position in a single calendar interface for intuitive understanding.
+* **Forward Visibility:** Highlights upcoming bills, expected collections, and procurement deliveries perfectly on the timeline, preventing surprises and enabling proactive planning.
+* **Action-Oriented Clarity:** Converts dense financial tables into a simple day-by-day visual journey.
+
+---
+
 
 ## Architecture
 
@@ -119,7 +153,7 @@ App: http://localhost:3000
 ## Environment Variables (backend)
 
 ```env
-GOOGLE_VISION_API_KEY=...      # For production OCR
+
 OPENAI_API_KEY=...             # For LLM parsing
 SUPABASE_URL=...
 SUPABASE_KEY=...
