@@ -4,9 +4,10 @@ import './CostIntelligence.css';
 
 /* ─── Types ─────────────────────────────────────────────── */
 interface Impact { amount: number; type: string; confidence: number; breakdown: Record<string, any>; }
-interface Leakage { type: string; description: string; impact: number; severity: string; recommendation: string; }
-interface Signal { signal: string; type: string; description: string; impact: number; severity: string; recommendation: string; formula?: string; }
-interface ExecAction { action_id: string; action: string; status: string; confidence: number; auto_eligible: boolean; impact: Impact; execution_result?: any; }
+interface Reasoning { evidence: string[]; logic_steps: string[]; confidence_score: number; }
+interface Leakage { type: string; description: string; impact: number; severity: string; recommendation: string; reasoning?: Reasoning; coi?: any; }
+interface Signal { signal: string; type: string; description: string; impact: number; severity: string; recommendation: string; formula?: string; reasoning?: Reasoning; }
+interface ExecAction { action_id: string; action: string; status: string; confidence: number; auto_eligible: boolean; impact: Impact; execution_result?: any; reasoning?: Reasoning; coi?: any; risk_tier: string; required_auth: string; }
 
 const fmt = (n: number) => n.toLocaleString('en-IN', { maximumFractionDigits: 0 });
 
@@ -21,6 +22,7 @@ export default function CostIntelligence() {
   const [autoExec, setAutoExec] = useState(false);
   const [executingId, setExecutingId] = useState<string | null>(null);
   const [toastMsg, setToastMsg] = useState('');
+  const [mfaAction, setMfaAction] = useState<any>(null);
 
   const load = async () => {
     setLoading(true); setError('');
@@ -38,10 +40,18 @@ export default function CostIntelligence() {
   const handleApprove = async (id: string) => {
     try { await approveAction(id); toast('Action approved'); load(); } catch { toast('Failed to approve'); }
   };
-  const handleExecute = async (id: string) => {
-    setExecutingId(id);
-    try { await executeAction(id); toast('Action executed successfully'); load(); } catch { toast('Execution failed'); }
+  const handleExecute = async (a: any) => {
+    if (a.risk_tier === 'High' && a.status !== 'approved') {
+      setMfaAction(a);
+      return;
+    }
+    setExecutingId(a.action_id);
+    try { await executeAction(a.action_id); toast('Action executed successfully'); load(); } catch { toast('Execution failed'); }
     finally { setExecutingId(null); }
+  };
+  const confirmMfa = async () => {
+    if (!mfaAction) return;
+    try { await approveAction(mfaAction.action_id); toast('MFA Verified. Action approved.'); setMfaAction(null); load(); } catch { toast('MFA Verification failed'); }
   };
   const handleAutoToggle = async () => {
     const next = !autoExec;
@@ -106,9 +116,9 @@ export default function CostIntelligence() {
 
         <div className="ci-kpi-row">
           <KpiCard accent="green" label="Total Savings" value={`₹${fmt(s.grand_total_financial_impact || 0)}`} sub="potential recovery" />
-          <KpiCard accent="danger" label="Leakage Detected" value={`₹${fmt(s.total_leakage_detected || 0)}`} sub={`${s.leakages_count || 0} issues found`} />
+          <KpiCard accent="danger" label="COI (Inaction)" value={`₹${fmt(s.total_coi || 0)}`} sub="projected compounded loss" />
           <KpiCard accent="blue" label="Enterprise Signals" value={String(s.signals_count || 0)} sub={`₹${fmt(s.total_signal_impact || 0)} impact`} />
-          <KpiCard accent="orange" label="Execution Ready" value={`${s.execution_ready_count || 0} / ${s.actions_count || 0}`} sub="auto-eligible actions" />
+          <KpiCard accent="orange" label="Risk Guardrails" value={s.risk_level === 'high' ? 'Strict' : 'Standard'} sub="permission engine active" />
         </div>
       </header>
 
@@ -139,6 +149,27 @@ export default function CostIntelligence() {
           />
         )}
       </section>
+
+      {/* ── MFA Simulation Portal ── */}
+      {mfaAction && (
+        <div className="ci-mfa-overlay">
+          <div className="ci-mfa-modal">
+            <h2 className="ci-mfa-h">MFA Authorization Required</h2>
+            <p className="ci-mfa-p">High-risk action detected: <strong>{mfaAction.action}</strong></p>
+            <div className="ci-mfa-details">
+              <div><span>Amount:</span> <span>₹{fmt(mfaAction.amount)}</span></div>
+              <div><span>Requirement:</span> <span>Multi-Factor / Dual-Human Sign-off</span></div>
+            </div>
+            <div className="ci-mfa-input">
+              <input type="text" placeholder="Enter Approval Code (e.g. 1234)" readOnly value="SENT TO: ADMINPHONE" />
+            </div>
+            <div className="ci-mfa-btns">
+              <button className="ci-mfa-btn-cancel" onClick={() => setMfaAction(null)}>Cancel</button>
+              <button className="ci-mfa-btn-confirm" onClick={confirmMfa}>Verify & Authorize</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -239,13 +270,13 @@ function OverviewTab({ leakage, signals, impact, execution }: any) {
         <div className="ci-card">
           <h3 className="ci-card-h">
             <span className="ci-card-h-icon">◈</span>
-            Top Signals
+            Sentinel Monitoring (SLA Alerts)
           </h3>
           <div className="ci-items">
-            {(signals.signals || []).slice(0, 3).map((s: Signal, i: number) => (
-              <IssueRow key={i} severity={s.severity} type={s.signal} desc={s.description} impact={s.impact} rec={s.recommendation} formula={s.formula} />
+            {(signals.signals || []).filter((s:any) => s.type === 'sentinel_alert').map((s: Signal, i: number) => (
+              <IssueRow key={i} severity={s.severity} type={s.signal} desc={s.description} impact={s.impact} rec={s.recommendation} reasoning={s.reasoning} />
             ))}
-            {(signals.signals || []).length === 0 && <p className="ci-empty-msg">No signals found</p>}
+            {(signals.signals || []).filter((s:any) => s.type === 'sentinel_alert').length === 0 && <p className="ci-empty-msg">Sentinel Sentinel: All systems stable</p>}
           </div>
         </div>
       </div>
@@ -273,18 +304,34 @@ function ModuleCard({ icon, title, accent, primary, secondary, badges }: any) {
   );
 }
 
-function IssueRow({ severity, type, desc, impact, rec, formula }: {
-  severity: string; type: string; desc: string; impact: number; rec: string; formula?: string;
+function IssueRow({ severity, type, desc, impact, rec, formula, reasoning }: {
+  severity: string; type: string; desc: string; impact: number; rec: string; formula?: string; reasoning?: Reasoning;
 }) {
+  const [showWhy, setShowWhy] = useState(false);
   return (
     <div className={`ci-issue ci-issue-${severity}`}>
       <div className="ci-issue-top">
         <SevDot level={severity} />
         <span className="ci-issue-type">{type.replace(/_/g, ' ')}</span>
+        <button className="ci-why-btn" onClick={() => setShowWhy(!showWhy)}>Why?</button>
         <span className="ci-issue-amt">₹{fmt(impact || 0)}</span>
       </div>
       <p className="ci-issue-desc">{desc}</p>
       {formula && <p className="ci-issue-formula">{formula}</p>}
+      
+      {showWhy && reasoning && (
+        <div className="ci-why-trace">
+          <h4>Reasoning Trace (CoT)</h4>
+          <div className="ci-why-evidence">
+            <strong>Evidence Scanned:</strong> {reasoning.evidence.join(', ')}
+          </div>
+          <ul className="ci-why-steps">
+            {reasoning.logic_steps.map((s, i) => <li key={i}>{s}</li>)}
+          </ul>
+          <div className="ci-why-conf">Confidence Score: {Math.round(reasoning.confidence_score * 100)}%</div>
+        </div>
+      )}
+
       <p className="ci-issue-rec">{rec}</p>
     </div>
   );
@@ -509,30 +556,51 @@ function ExecutionTab({ data, autoExec, executingId, onApprove, onExecute, onAut
 
 function ExecCard({ a, executingId, onApprove, onExecute }: {
   a: ExecAction; executingId: string | null;
-  onApprove: (id: string) => void; onExecute: (id: string) => void;
+  onApprove: (id: string) => void; onExecute: (a: any) => void;
 }) {
   const isRunning = executingId === a.action_id;
+  const [showWhy, setShowWhy] = useState(false);
+  const riskColor = a.risk_tier === 'High' ? 'danger' : a.risk_tier === 'Medium' ? 'warning' : 'success';
+
   return (
     <div className={`ci-xcard ci-xcard-${a.status}`}>
       <div className="ci-xcard-top">
-        <span className={`ci-sev-pill ci-sev-${a.status === 'pending' ? 'medium' : a.status === 'executed' ? 'low' : 'high'}`}>
-          {a.status}
+        <span className={`ci-sev-pill ci-sev-${riskColor}`}>
+          {a.risk_tier} RISK
         </span>
         {a.auto_eligible && <span className="ci-xcard-auto">⚡ auto</span>}
-        <span className="ci-xcard-conf">{Math.round(a.confidence * 100)}%</span>
+        <button className="ci-why-btn-sm" onClick={() => setShowWhy(!showWhy)}>Why?</button>
+        <span className="ci-xcard-conf">{Math.round((a.confidence || 0) * 100)}%</span>
       </div>
       <p className="ci-xcard-action">{a.action}</p>
-      {a.impact?.amount > 0 && <span className="ci-xcard-impact">₹{fmt(a.impact.amount)} savings</span>}
-      {a.status === 'pending' && (
+      {a.impact?.amount > 0 && (
+        <div className="ci-xcard-impact-row">
+          <span className="ci-xcard-impact">₹{fmt(a.impact.amount)} savings</span>
+          {a.coi && <span className="ci-xcard-coi">₹{fmt(a.coi.projected_loss)} COI</span>}
+        </div>
+      )}
+
+      {showWhy && a.reasoning && (
+        <div className="ci-why-trace-sm">
+          <div className="ci-why-steps">
+            {a.reasoning.logic_steps.map((s, i) => <li key={i}>{s}</li>)}
+          </div>
+        </div>
+      )}
+
+      {(a.status === 'pending' || a.status === 'pending_approval' || a.status === 'pending_mfa') && (
         <div className="ci-xcard-btns">
           <button className="ci-xbtn ci-xbtn-approve" onClick={() => onApprove(a.action_id)}>Approve</button>
-          <button className="ci-xbtn ci-xbtn-exec" onClick={() => onExecute(a.action_id)} disabled={isRunning}>
-            {isRunning ? 'Running…' : 'Execute'}
+          <button className="ci-xbtn ci-xbtn-exec" onClick={() => onExecute(a)} disabled={isRunning}>
+            {isRunning ? 'Running…' : a.risk_tier === 'High' ? 'Authorize' : 'Execute'}
           </button>
         </div>
       )}
       {a.status === 'executed' && a.execution_result && (
         <div className="ci-xcard-result">{a.execution_result.message}</div>
+      )}
+      {a.status === 'fully_autonomous' && (
+        <div className="ci-xcard-result ci-glow-text">Executing autonomously...</div>
       )}
     </div>
   );

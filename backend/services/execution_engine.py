@@ -26,6 +26,52 @@ def _now_iso() -> str:
     return datetime.now().isoformat()
 
 
+# ─── FR-02: Permission Engine ────────────────────────────────────────────────
+
+def get_risk_tier(action: Dict) -> Dict:
+    """
+    Categorizes actions into Low, Medium, or High risk based on amount and impact.
+    """
+    amount = action.get("amount", 0)
+    atype = action.get("type", "unknown")
+    
+    # 1. High Risk: > ₹50,000 OR critical types
+    if amount >= 50000 or atype in ("immediate_payment", "cut_overhead"):
+        return {
+            "tier": "High",
+            "required_auth": "MFA / Dual-Signature",
+            "status": "pending_mfa",
+            "auto_eligible": False,
+            "color": "danger"
+        }
+    
+    # 2. Medium Risk: > ₹10,000
+    if amount >= 10000:
+        return {
+            "tier": "Medium",
+            "required_auth": "Single-Click Dashboard Approval",
+            "status": "pending_approval",
+            "auto_eligible": False,
+            "color": "warning"
+        }
+    
+    # 3. Low Risk: < ₹10,000
+    return {
+        "tier": "Low",
+        "required_auth": "None (Fully Autonomous)",
+        "status": "fully_autonomous",
+        "auto_eligible": True,
+        "color": "success"
+    }
+
+
+def _trigger_audit_webhook(action_record: Dict):
+    """
+    Simulates a webhook trigger to a persistent Audit Database.
+    """
+    print(f"[WEBHOOK] Audit Log Sync: Action {action_record['action_id']} ({action_record['tier']} Risk) synchronized to Enterprise Audit DB.")
+
+
 # ─── Action Registration ─────────────────────────────────────────────────────
 
 def register_action(action: Dict, confidence: float = 0.75) -> Dict:
@@ -35,6 +81,9 @@ def register_action(action: Dict, confidence: float = 0.75) -> Dict:
     """
     action_id = _generate_action_id()
 
+    # Evaluate Risk Tier
+    risk = get_risk_tier(action)
+
     execution_record = {
         "action_id": action_id,
         "action": action.get("action", "Unknown action"),
@@ -43,14 +92,22 @@ def register_action(action: Dict, confidence: float = 0.75) -> Dict:
         "client": action.get("client", ""),
         "amount": action.get("amount", 0),
         "impact": action.get("impact", {}),
+        "reasoning": action.get("reasoning", {}),
+        "coi": action.get("coi", {}),
         "confidence": confidence,
-        "status": "pending",
+        "risk_tier": risk["tier"],
+        "tier": risk["tier"], # for redundancy
+        "required_auth": risk["required_auth"],
+        "status": risk["status"],
         "created_at": _now_iso(),
         "updated_at": _now_iso(),
         "executed_at": None,
         "execution_result": None,
-        "auto_eligible": confidence >= _auto_execute_threshold,
+        "auto_eligible": risk["auto_eligible"] and confidence >= _auto_execute_threshold,
     }
+
+    if execution_record["auto_eligible"]:
+        _trigger_audit_webhook(execution_record)
 
     _pending_actions[action_id] = execution_record
     return execution_record
@@ -102,8 +159,12 @@ def execute_action(action_id: str) -> Dict:
         return {"error": f"Action {action_id} not found", "success": False}
 
     action = _pending_actions[action_id]
-    if action["status"] not in ("pending", "approved"):
+    if action["status"] not in ("pending", "approved", "fully_autonomous", "pending_approval", "pending_mfa"):
         return {"error": f"Action {action_id} cannot be executed (status: {action['status']})", "success": False}
+    
+    # Gate High Risk
+    if action["risk_tier"] == "High" and action["status"] != "approved":
+        return {"error": "MFA / Dual-Signature Authorization Required for High-Risk Action", "success": False}
 
     # Simulate execution based on type
     execution_result = _simulate_execution(action)

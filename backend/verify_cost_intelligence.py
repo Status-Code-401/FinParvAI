@@ -73,7 +73,33 @@ def check_cost_intelligence():
         if "auto_eligible_count" in execution:
             print(f"  [PASS] Execution: auto_eligible_count = {execution['auto_eligible_count']}")
             
-        print("\n[CONCLUSION] Verification Completed.")
+        print("\n🔍 Validating Execution Engine logic (Permission Engine)...")
+        execution = data.get('execution', {})
+        reg_actions = execution.get('registered_actions', [])
+        if reg_actions:
+            action = reg_actions[0]
+            fields = ['risk_tier', 'required_auth', 'reasoning', 'coi']
+            for f in fields:
+                if f in action:
+                    print(f"✅ Field '{f}' present in registered actions.")
+                else:
+                    print(f"❌ Missing field '{f}' in registered actions.")
+            
+            # Check High Risk gating simulation
+            high_risk = next((a for a in reg_actions if a.get('risk_tier') == 'High'), None)
+            if high_risk:
+                print(f"✅ High Risk action detected: {high_risk['action']} (Gated by {high_risk['required_auth']})")
+
+        print("\n🔍 Validating Sentinel Agent (FR-04)...")
+        signals = data.get('signals', {})
+        sentinels = [s for s in signals.get('signals', []) if s.get('type') == 'sentinel_alert']
+        if sentinels:
+            print(f"✅ Sentinel alerts found: {len(sentinels)}")
+            print(f"   Sample: {sentinels[0]['description']}")
+        else:
+            print("❌ No Sentinel alerts found.")
+
+        print("\n✅ Verification Complete.")
         
     except Exception as e:
         print(f"\n[ERROR] Verification Failed: {e}")

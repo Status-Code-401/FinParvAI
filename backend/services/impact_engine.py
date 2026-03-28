@@ -143,6 +143,22 @@ def calculate_confidence(action_type: str, data_quality: float = 0.9, historical
     return round(min(confidence, 0.99), 2)
 
 
+# ─── FR-03: Cost of Inaction (COI) ─────────────────────────────────────────────
+
+def calculate_compounded_leakage(daily_rate: float, days_to_human: int = 30, days_to_ai: int = 1) -> Dict:
+    """
+    Projected Loss = Daily Leakage Rate × (Days to Human Discovery - Days to AI Detection)
+    """
+    days_saved = max(0, days_to_human - days_to_ai)
+    projected_loss = daily_rate * days_saved
+    return {
+        "daily_rate": round(daily_rate, 2),
+        "days_saved": days_saved,
+        "projected_loss": round(projected_loss, 2),
+        "formula": f"₹{daily_rate:,.2f} × ({days_to_human} - {days_to_ai}) days = ₹{projected_loss:,.2f}"
+    }
+
+
 # ─── Per-Action Impact Calculator ─────────────────────────────────────────────
 
 def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
@@ -155,6 +171,11 @@ def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
     vendor = action.get("vendor", "")
 
     impact = {"amount": 0, "type": "unknown", "confidence": 0.75, "breakdown": {}}
+    reasoning = {
+        "evidence": [],
+        "logic_steps": [],
+        "confidence_score": 0.75
+    }
 
     if action_type in ("payment", "pay_now"):
         # Paying on time avoids penalty — penalty is the impact
@@ -166,12 +187,22 @@ def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
                 "confidence": 0.95,
                 "breakdown": {"penalty_avoided": penalty_amount}
             }
+            reasoning = {
+                "evidence": [f"SLA Clause {action.get('vendor', 'Vendor')} Payment Terms"],
+                "logic_steps": ["Detected approaching due date", "Calculated potential penalty hit", "Prioritized for immediate liquidity allocation"],
+                "confidence_score": 0.95
+            }
         else:
             impact = {
                 "amount": round(amount * 0.02, 2),  # relationship value
                 "type": "relationship_preservation",
                 "confidence": 0.90,
                 "breakdown": {"estimated_goodwill_value": round(amount * 0.02, 2)}
+            }
+            reasoning = {
+                "evidence": ["Vendor Relationship Profile"],
+                "logic_steps": ["Verified on-time payment history", "Calculated relationship value impact", "Recommended to maintain supply chain trust"],
+                "confidence_score": 0.90
             }
 
     elif action_type in ("negotiate_delay", "delay_payment"):
@@ -181,6 +212,11 @@ def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
             "type": "payment_delay_savings",
             "confidence": calculate_confidence("delay_payment"),
             "breakdown": delay_benefit["breakdown"]
+        }
+        reasoning = {
+            "evidence": ["Liquidity Forecast", "Flexible Vendor Terms"],
+            "logic_steps": ["Identified short-term cash gap", "Screened vendors for delay flexibility", "Calculated time-value of capital preservation"],
+            "confidence_score": 0.85
         }
 
     elif action_type == "partial_payment":
@@ -193,6 +229,11 @@ def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
             "confidence": calculate_confidence("partial_payment"),
             "breakdown": delay_benefit["breakdown"]
         }
+        reasoning = {
+            "evidence": ["Daily Cash Runway", "Vendor Criticality Score"],
+            "logic_steps": ["Partial liquidity exists but insufficient for full payment", "Negotiated split to satisfy immediate critical line", "Preserved cash for payroll"],
+            "confidence_score": 0.82
+        }
 
     elif action_type == "cost_reduction":
         saving = action.get("saving", 0)
@@ -202,6 +243,11 @@ def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
             "type": "overhead_savings",
             "confidence": calculate_confidence("cut_overhead"),
             "breakdown": oh_impact["breakdown"]
+        }
+        reasoning = {
+            "evidence": ["Subscription Utilization Telemetry", "Industry Benchmarks"],
+            "logic_steps": ["Scanned operational overheads", "Identified underutilized license/service", "Verified zero operational impact from removal"],
+            "confidence_score": 0.92
         }
 
     elif action_type == "inventory_action":
@@ -216,6 +262,11 @@ def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
                 "holding_cost_saved": round(liq_value * 0.15, 2)
             }
         }
+        reasoning = {
+            "evidence": ["Inventory Turnover Report", "Factory Production Plan"],
+            "logic_steps": ["Detected excess stock with zero upcoming demand", "Calculated monthly holding cost burn", "Recommended liquidation to free locked capital"],
+            "confidence_score": 0.78
+        }
 
     elif action_type == "early_collection":
         ec_impact = calculate_early_collection_benefit(amount, days_early=7)
@@ -225,10 +276,21 @@ def calculate_action_impact(action: Dict, state_context: Dict) -> Dict:
             "confidence": calculate_confidence("early_collection"),
             "breakdown": ec_impact["breakdown"]
         }
+        reasoning = {
+            "evidence": ["Client Payment Behavior Data", "Receivable Aging"],
+            "logic_steps": ["Analyzed client's high liquidity profile", "Calculated incentive/net-gain trade-off", "Recommended immediate collection to bridge shortfall"],
+            "confidence_score": 0.75
+        }
+
+    # FR-03: Cost of Inaction (COI) Integration
+    daily_leakage = impact["amount"] / 30 if action_type == "cost_reduction" else (impact["amount"] / 7)
+    coi = calculate_compounded_leakage(daily_leakage)
 
     return {
         **action,
-        "impact": impact
+        "impact": impact,
+        "reasoning": reasoning,
+        "coi": coi
     }
 
 
