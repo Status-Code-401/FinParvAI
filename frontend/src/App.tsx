@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, TrendingUp, CreditCard, Users, Package,
-  Mail, Upload, BarChart3, Landmark, LogOut, ChevronRight, CalendarDays, Lock
+  Mail, Upload, BarChart3, Landmark, LogOut, ChevronRight, CalendarDays, Lock, Brain
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import CashFlow from './pages/CashFlow';
@@ -14,6 +14,7 @@ import Forecast from './pages/Forecast';
 import Transactions from './pages/Transactions';
 import CalendarDashboard from './pages/CalendarDashboard';
 import Login from './pages/Login';
+import CostIntelligence from './pages/CostIntelligence';
 
 // ── Navigation structure — plain business English ────────────────────────────
 const navItems = [
@@ -26,6 +27,7 @@ const navItems = [
 ];
 
 const toolItems = [
+  { to: '/cost-intel', icon: Brain,       label: 'Cost Intelligence', sub: 'Leakage & signals',  gated: true },
   { to: '/actions',  icon: Mail,          label: 'What To Do Next',   sub: 'Actions & emails',   gated: true },
   { to: '/forecast', icon: BarChart3,     label: 'Money Forecast',    sub: '3-month outlook',    gated: true },
   { to: '/calendar', icon: CalendarDays,  label: 'Cash Calendar',     sub: 'Daily events',       gated: true },
@@ -193,6 +195,7 @@ export default function App() {
                       <Route path="/bills"    element={<GatedRoute><Obligations /></GatedRoute>} />
                       <Route path="/owed"     element={<GatedRoute><Receivables /></GatedRoute>} />
                       <Route path="/stock"    element={<GatedRoute><Inventory /></GatedRoute>} />
+                      <Route path="/cost-intel" element={<GatedRoute><CostIntelligence /></GatedRoute>} />
                       <Route path="/actions"  element={<GatedRoute><Actions /></GatedRoute>} />
                       <Route path="/forecast" element={<GatedRoute><Forecast /></GatedRoute>} />
                       <Route path="/calendar" element={<GatedRoute><CalendarDashboard /></GatedRoute>} />

@@ -1,6 +1,6 @@
 import requests
 url = "http://localhost:8000/api/ingest/document"
-files = {'file': ('test.txt', b'Vendor: Alpha Traders\nAmount: 5000\nType: invoice')}
+files = {'files': ('test.txt', b'Vendor: Alpha Traders\nAmount: 5000\nType: invoice')}
 response = requests.post(url, files=files)
 data = response.json()
 print("Persisted As:", data.get('persisted_as'))

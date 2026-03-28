@@ -447,3 +447,92 @@ def get_calendar():
             "procurement_deliveries": len(proc_orders),
         }
     }
+
+
+# ─── v2: COST INTELLIGENCE COMBINED ENDPOINT ──────────────────────────────────
+
+@router.get("/cost-intelligence")
+def get_cost_intelligence():
+    """
+    Combined endpoint that runs all 4 v2 modules:
+    M1: Cost Impact Engine
+    M2: Cost Leakage Detection Engine
+    M3: Autonomous Execution Layer
+    M4: Enterprise Signal Layer
+    
+    Returns a unified response for the frontend Cost Intelligence Dashboard.
+    """
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+    
+    from services.impact_engine import run_impact_engine
+    from services.leakage_engine import run_leakage_engine
+    from services.execution_engine import run_execution_engine
+    from services.signal_engine import run_signal_engine
+
+    state = _load_state()
+    ledger = _load_ledger()
+    result = run_engine(state)
+
+    # Load inventory/procurement data
+    with open(os.path.join(MOCK_DATA_DIR, "inventory_procurement.json")) as f:
+        inv_data = json.load(f)
+
+    # ── M1: Impact Engine ──
+    actions = result.get("actions", {}).get("actions", [])
+    state_context = {
+        "cash_balance": state.cash_balance,
+        "shortfall": result.get("shortfall", {}).get("gap", 0),
+        "inventory_status": [i.dict() for i in state.inventory_status],
+    }
+    impact_result = run_impact_engine(state_context, actions)
+
+    # ── M2: Leakage Detection ──
+    leak_input = {
+        "transactions": [t.dict() for t in state.transactions],
+        "payables": [p.dict() for p in state.payables],
+        "receivables": [r.dict() for r in state.receivables],
+        "inventory_status": [i.dict() for i in state.inventory_status],
+        "procurement_orders": inv_data.get("procurement_orders", []),
+        "vendor_insights": [v.dict() for v in state.vendor_insights],
+    }
+    leakage_result = run_leakage_engine(leak_input)
+
+    # ── M4: Enterprise Signals ──
+    signal_input = {
+        "payables": [p.dict() for p in state.payables],
+        "receivables": [r.dict() for r in state.receivables],
+        "inventory_status": [i.dict() for i in state.inventory_status],
+        "procurement_orders": inv_data.get("procurement_orders", []),
+        "vendor_insights": [v.dict() for v in state.vendor_insights],
+        "production": state.production.dict() if state.production else {},
+        "ledger_summary": state.ledger_summary.dict() if state.ledger_summary else {},
+    }
+    signal_result = run_signal_engine(signal_input)
+
+    # ── M3: Execution Layer ──
+    exec_result = run_execution_engine(impact_result.get("actions_with_impact", []))
+
+    # ── Combined Summary ──
+    total_savings = impact_result.get("total_potential_savings", 0)
+    total_leakage = leakage_result.get("total_leakage_amount", 0)
+    total_signal_impact = signal_result.get("total_impact", 0)
+
+    return {
+        "impact": impact_result,
+        "leakage": leakage_result,
+        "signals": signal_result,
+        "execution": exec_result,
+        "combined_summary": {
+            "total_potential_savings": round(total_savings, 2),
+            "total_leakage_detected": round(total_leakage, 2),
+            "total_signal_impact": round(total_signal_impact, 2),
+            "grand_total_financial_impact": round(total_savings + total_leakage + total_signal_impact, 2),
+            "actions_count": len(actions),
+            "leakages_count": leakage_result.get("leakage_count", 0),
+            "signals_count": signal_result.get("total_signals", 0),
+            "execution_ready_count": exec_result.get("auto_eligible_count", 0),
+            "risk_level": result.get("risk_level", "unknown"),
+            "cash_balance": state.cash_balance,
+        }
+    }

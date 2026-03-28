@@ -1,0 +1,60 @@
+﻿
+Testing: Health -> http://127.0.0.1:8000/health
+  status: healthy
+  version: 2.0.0
+  [PASS] Health
+
+Testing: Impact -> http://127.0.0.1:8000/api/impact/calculate
+  actions_with_impact: [list with 85 items]
+  total_potential_savings: 1489.81
+  liquidity_protection: [dict with 3 keys]
+  inventory_holding_savings: 0.0
+  summary: [dict with 4 keys]
+  [PASS] Impact
+
+Testing: Leakage -> http://127.0.0.1:8000/api/leakage/detect
+  leakages: [list with 8 items]
+  total_leakage_amount: 449350.0
+  leakage_count: 8
+  by_type: [dict with 4 keys]
+  by_severity: [dict with 3 keys]
+  severity_impact: [dict with 3 keys]
+  summary: Detected 8 cost leakage(s) totaling Γé╣449,350. 4 duplicate(s), 0 vendor anomaly/anomalies, 0 idle inv
+  [PASS] Leakage
+
+Testing: Signals -> http://127.0.0.1:8000/api/signals/analyze
+  signals: [list with 39 items]
+  total_signals: 39
+  total_impact: 5026.6
+  by_type: [dict with 4 keys]
+  by_severity: [dict with 3 keys]
+  summary: Detected 39 enterprise signal(s) with Γé╣5,027 total impact. 38 SLA risk(s), 1 vendor insight(s), 0 in
+  [PASS] Signals
+
+Testing: Execution -> http://127.0.0.1:8000/api/execution/run
+  registered_actions: [list with 85 items]
+  total_actions: 85
+  auto_eligible_count: 3
+  manual_review_count: 82
+  auto_eligible: [list with 3 items]
+  manual_review: [list with 82 items]
+  auto_execute_enabled: False
+  auto_execute_threshold: 0.85
+  execution_logs: [list with 0 items]
+  summary: 85 actions registered. 3 eligible for auto-execution (confidence ΓëÑ 0.85). 82 require manual approval
+  [PASS] Execution
+
+Testing: Exec Logs -> http://127.0.0.1:8000/api/execution/logs
+  logs: [list with 0 items]
+  total: 0
+  [PASS] Exec Logs
+
+Testing: Combined -> http://127.0.0.1:8000/api/cost-intelligence
+  impact: [dict with 5 keys]
+  leakage: [dict with 7 keys]
+  signals: [dict with 6 keys]
+  execution: [dict with 10 keys]
+  combined_summary: [dict with 10 keys]
+  [PASS] Combined
+
+=== Results: 7/7 passed ===

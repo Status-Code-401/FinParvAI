@@ -1,0 +1,63 @@
+﻿..\\.venv\\Scripts\\python
+.exe : C:\Users\athar\Desk
+top\FinParvAI\backend\debu
+g_v2.py:32: PydanticDeprec
+atedSince20: The `dict` 
+method is deprecated; use 
+`model_dump` instead. 
+Deprecated in Pydantic 
+V2.0 to be removed in 
+V3.0. See Pydantic V2 
+Migration Guide at https:/
+/errors.pydantic.dev/2.12/
+migration/
+At line:1 char:1
++ ..\\.venv\\Scripts\\pyth
+on.exe debug_v2.py 2>&1 | 
+Out-File -Encoding  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (C  
+  :\Users\athar\...2.12   
+ /migration/:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+  "inventory_status": 
+[i.dict() for i in 
+state.inventory_status],
+Step 1: Loading state...
+  Cash: 45000.0, Payables: 85, Receivables: 4
+
+Step 2: Running decision engine...
+  Risk: critical, Actions: 85
+
+Step 3: Loading inventory data...
+  Procurement orders: 6
+
+Step 4: Running Impact Engine...
+Traceback (most recent 
+call last):
+  File "C:\Users\athar\Des
+ktop\FinParvAI\backend\deb
+ug_v2.py", line 34, in 
+<module>
+    impact_result = run_im
+pact_engine(state_context,
+ actions)
+  File "C:\Users\athar\Des
+ktop\FinParvAI\backend\ser
+vices\impact_engine.py", 
+line 260, in 
+run_impact_engine
+    if excess > 0 and 
+unit_cost > 0:
+                      
+^^^^^^^^^^^^^
+TypeError: '>' not 
+supported between 
+instances of 'NoneType' 
+and 'int'

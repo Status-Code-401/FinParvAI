@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'http://localhost:8000';
 const api = axios.create({ baseURL: BASE_URL });
 
 export const getDashboard = () => api.get('/api/dashboard').then(r => r.data);
@@ -17,6 +17,24 @@ export const getLedger = () => api.get('/api/ledger').then(r => r.data);
 export const getTransactions = () => api.get('/api/transactions').then(r => r.data);
 export const getFinancialState = () => api.get('/api/financial-state').then(r => r.data);
 export const getCalendar = () => api.get('/api/calendar').then(r => r.data);
+
+// ── v2: Cost Intelligence Endpoints ──────────────────────────────────────────
+export const getCostIntelligence = () => api.get('/api/cost-intelligence').then(r => r.data);
+export const getImpactAnalysis = () => api.get('/api/impact/calculate').then(r => r.data);
+export const getLeakageDetection = () => api.get('/api/leakage/detect').then(r => r.data);
+export const getSignalAnalysis = () => api.get('/api/signals/analyze').then(r => r.data);
+export const getExecutionState = () => api.get('/api/execution/run').then(r => r.data);
+export const getExecutionLogs = () => api.get('/api/execution/logs').then(r => r.data);
+export const getExecutionPending = () => api.get('/api/execution/pending').then(r => r.data);
+
+export const approveAction = (actionId: string) =>
+  api.post('/api/execution/approve', { action_id: actionId }).then(r => r.data);
+export const executeAction = (actionId: string) =>
+  api.post('/api/execution/execute', { action_id: actionId }).then(r => r.data);
+export const rejectAction = (actionId: string, reason = '') =>
+  api.post('/api/execution/reject', { action_id: actionId, reason }).then(r => r.data);
+export const toggleAutoExecute = (enabled: boolean, threshold = 0.85) =>
+  api.post('/api/execution/auto-toggle', { enabled, threshold }).then(r => r.data);
 
 export const ingestBankCSV = (files: File[]) => {
   const form = new FormData();
@@ -36,3 +54,4 @@ export const ingestDocument = (files: File[]) => {
   return api.post('/api/ingest/document', form).then(r => r.data);
 };
 export default api;
+

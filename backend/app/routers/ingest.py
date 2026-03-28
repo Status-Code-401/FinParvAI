@@ -239,6 +239,12 @@ async def ingest_financial_state(file: UploadFile = File(...)):
     }
 
 
+@router.post("/upload")
+async def legacy_upload(file: UploadFile = File(...)):
+    """Legacy alias for document ingestion (supports single file)."""
+    return await ingest_document([file])
+
+
 @router.post("/document")
 async def ingest_document(files: list[UploadFile] = File(...)):
     """
