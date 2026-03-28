@@ -11,7 +11,7 @@ from typing import List, Dict, Any, Optional
 from app.models.financial_state import (
     FinancialState, Transaction, Payable, Receivable,
     Overhead, InventoryItem, ProcurementOrder, VendorInsight,
-    LedgerSummary, Production
+    LedgerSummary, Production, SoftwareSubscription, FactoryStatus
 )
 
 TODAY = datetime.now().date()
@@ -135,6 +135,9 @@ def _parse_normalized_state(data: Dict) -> FinancialState:
         monthly_target=prod_data.get("monthly_target")
     ) if prod_data else None
 
+    software = [SoftwareSubscription(**s) for s in data.get("software_subscriptions", [])]
+    factory = [FactoryStatus(**f) for f in data.get("factory_status", [])]
+
     return FinancialState(
         business_name=data.get("_meta", {}).get("business", "Sri Lakshmi Garments"),
         cash_balance=data.get("cash_balance", 0),
@@ -147,7 +150,9 @@ def _parse_normalized_state(data: Dict) -> FinancialState:
         inventory_status=inv_status,
         vendor_insights=vendor_insights,
         production=production,
-        cost_breakdown=data.get("cost_breakdown")
+        cost_breakdown=data.get("cost_breakdown"),
+        software_subscriptions=software,
+        factory_status=factory
     )
 
 

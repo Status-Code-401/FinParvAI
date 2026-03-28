@@ -269,6 +269,40 @@ def analyze_cash_velocity(ledger_summary: Dict = None, receivables: List[Dict] =
     return signals
 
 
+# ─── Operational SLA Signal (Factory/Resource Routing) ────────────────────────
+
+def detect_operational_slas(factory_status: List[Dict], procurement_orders: List[Dict]) -> List[Dict]:
+    """
+    FR7: Operational SLA mitigation & Resource Routing.
+    Detects delayed materials for active factories and recommends rerouting.
+    """
+    signals = []
+    
+    for fs in factory_status:
+        delay = fs.get("delay_days", 0)
+        penalty = fs.get("idle_penalty_per_day", 0)
+        line = fs.get("line_name", "Unknown Line")
+        product = fs.get("current_product", "Unknown Product")
+        
+        if delay > 0 and penalty > 0:
+            impact = delay * penalty
+            signals.append({
+                "signal": "operational_sla_risk",
+                "type": "sla_penalty",
+                "description": f"Raw material delay of {delay} days for {line} risks ₹{impact:,.0f} idle penalty.",
+                "line_name": line,
+                "delay_days": delay,
+                "idle_penalty_per_day": penalty,
+                "impact": impact,
+                "severity": "high" if impact > 25000 else "medium",
+                "recommendation": f"Reroute {line} capacity to alternate demanding product to mitigate ₹{impact:,.0f} penalty.",
+                "action_type": "reroute_production",
+                "formula": f"{delay} days × ₹{penalty:,.0f}/day = ₹{impact:,.0f}"
+            })
+            
+    return signals
+
+
 # ─── Master Signal Engine ─────────────────────────────────────────────────────
 
 def run_signal_engine(state_dict: Dict) -> Dict:
@@ -283,14 +317,16 @@ def run_signal_engine(state_dict: Dict) -> Dict:
     vendor_insights = state_dict.get("vendor_insights", [])
     production_data = state_dict.get("production", {})
     ledger_summary = state_dict.get("ledger_summary", {})
+    factory_status = state_dict.get("factory_status", [])
 
     # Run all signal analyzers
     sla_risks = detect_sla_risks(payables)
     vendor_benchmarks = benchmark_vendors(procurement_orders, vendor_insights)
     inventory_signals = analyze_inventory_turnover(inventory_status, production_data, ledger_summary)
     cash_velocity = analyze_cash_velocity(ledger_summary, receivables, payables)
+    op_slas = detect_operational_slas(factory_status, procurement_orders)
 
-    all_signals = sla_risks + vendor_benchmarks + inventory_signals + cash_velocity
+    all_signals = sla_risks + vendor_benchmarks + inventory_signals + cash_velocity + op_slas
 
     # Sort by impact DESC
     all_signals.sort(key=lambda x: -x.get("impact", 0))
@@ -302,10 +338,11 @@ def run_signal_engine(state_dict: Dict) -> Dict:
         "total_signals": len(all_signals),
         "total_impact": round(total_impact, 2),
         "by_type": {
-            "sla_risks": len(sla_risks),
+            "sla_risks": len(sla_risks) + len(op_slas),
             "vendor_benchmarks": len(vendor_benchmarks),
             "inventory_signals": len(inventory_signals),
             "cash_velocity": len(cash_velocity),
+            "operational_slas": len(op_slas),
         },
         "by_severity": {
             "high": len([s for s in all_signals if s.get("severity") == "high"]),
@@ -313,6 +350,6 @@ def run_signal_engine(state_dict: Dict) -> Dict:
             "low": len([s for s in all_signals if s.get("severity") == "low"]),
         },
         "summary": f"Detected {len(all_signals)} enterprise signal(s) with ₹{total_impact:,.0f} total impact. "
-                   f"{len(sla_risks)} SLA risk(s), {len(vendor_benchmarks)} vendor insight(s), "
+                   f"{len(sla_risks) + len(op_slas)} SLA risk(s), {len(vendor_benchmarks)} vendor insight(s), "
                    f"{len(inventory_signals)} inventory signal(s)."
     }

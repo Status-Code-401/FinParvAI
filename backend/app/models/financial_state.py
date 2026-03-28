@@ -105,6 +105,22 @@ class Production(BaseModel):
     units_this_month: Optional[int] = 0
     monthly_target: Optional[int] = 2200
 
+class SoftwareSubscription(BaseModel):
+    tool_name: str
+    category: str
+    monthly_cost: float
+    utilization_percent: float = 100
+    active: bool = True
+    renewal_date: Optional[str] = None
+
+class FactoryStatus(BaseModel):
+    line_name: str
+    status: str
+    current_product: str
+    delay_days: int = 0
+    idle_penalty_per_day: float = 0
+
+
 
 class FinancialState(BaseModel):
     business_name: Optional[str] = "Sri Lakshmi Garments"
@@ -119,3 +135,5 @@ class FinancialState(BaseModel):
     vendor_insights: List[VendorInsight] = []
     production: Optional[Production] = None
     cost_breakdown: Optional[Dict[str, float]] = None
+    software_subscriptions: List[SoftwareSubscription] = []
+    factory_status: List[FactoryStatus] = []

@@ -495,6 +495,7 @@ def get_cost_intelligence():
         "inventory_status": [i.dict() for i in state.inventory_status],
         "procurement_orders": inv_data.get("procurement_orders", []),
         "vendor_insights": [v.dict() for v in state.vendor_insights],
+        "software_subscriptions": [s.dict() for s in state.software_subscriptions],
     }
     leakage_result = run_leakage_engine(leak_input)
 
@@ -507,6 +508,7 @@ def get_cost_intelligence():
         "vendor_insights": [v.dict() for v in state.vendor_insights],
         "production": state.production.dict() if state.production else {},
         "ledger_summary": state.ledger_summary.dict() if state.ledger_summary else {},
+        "factory_status": [f.dict() for f in state.factory_status],
     }
     signal_result = run_signal_engine(signal_input)
 

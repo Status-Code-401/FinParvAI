@@ -200,6 +200,26 @@ def _simulate_execution(action: Dict) -> Dict:
             "timestamp": _now_iso()
         }
 
+    elif action_type in ("cancel_subscription",):
+        return {
+            "execution_type": "subscription_cancellation",
+            "message": f"✅ Unused software subscription canceled. IT Admin notified.",
+            "cancellation_processed": True,
+            "tool": action.get("tool", ""),
+            "monthly_savings": action.get("impact", {}).get("amount", amount),
+            "timestamp": _now_iso()
+        }
+
+    elif action_type in ("reroute_production",):
+        return {
+            "execution_type": "production_reroute",
+            "message": f"✅ Production line rerouted. Operations manager notified.",
+            "reroute_initiated": True,
+            "line_name": action.get("line_name", ""),
+            "penalty_avoided": action.get("impact", {}).get("amount", amount),
+            "timestamp": _now_iso()
+        }
+
     else:
         return {
             "execution_type": "generic",
