@@ -197,3 +197,26 @@ npm run dev
 
 ---
 **"Empowering SMEs with the financial foresight of an enterprise CFO."**
+
+<img width="1573" height="902" alt="image" src="https://github.com/user-attachments/assets/e95b9669-cbe7-4410-8a50-e79386f6cfbf" />
+<img width="1912" height="898" alt="image" src="https://github.com/user-attachments/assets/3e98ec4d-66a2-4f6b-b7fa-3555f85d24d3" />
+<img width="1562" height="844" alt="image" src="https://github.com/user-attachments/assets/c115eef5-1189-44e1-ac16-c7d1d87e8ce8" />
+<img width="1571" height="903" alt="image" src="https://github.com/user-attachments/assets/20940688-4f45-4bc3-a708-272a2de662d9" />
+<img width="1591" height="914" alt="image" src="https://github.com/user-attachments/assets/94f962f6-0497-4fad-a4ce-ba0a43bbe0f1" />
+<img width="1575" height="901" alt="image" src="https://github.com/user-attachments/assets/f5524b9d-c925-471c-9454-e6157e7e2b87" />
+<img width="1598" height="897" alt="image" src="https://github.com/user-attachments/assets/b55cc4c9-dd28-4949-8a14-cc773cb07bad" />
+<img width="1604" height="899" alt="image" src="https://github.com/user-attachments/assets/9ab26d6f-0585-4b59-9000-72c27654104d" />
+<img width="1600" height="913" alt="image" src="https://github.com/user-attachments/assets/d2025647-2c2a-436f-bc72-66e65233f9b8" />
+<img width="1893" height="908" alt="image" src="https://github.com/user-attachments/assets/c7416ad9-d644-4ab0-b7a9-7f22b353b78c" />
+<img width="1576" height="908" alt="image" src="https://github.com/user-attachments/assets/02127a45-0871-45f2-8dac-18f2988d8fcc" />
+<img width="1559" height="891" alt="image" src="https://github.com/user-attachments/assets/893fdca0-7bcb-4bfe-9997-b7857b1a8520" />
+<img width="1597" height="911" alt="image" src="https://github.com/user-attachments/assets/453dddaa-95a9-4aa1-b068-9e8db992cc28" />
+<img width="1579" height="910" alt="image" src="https://github.com/user-attachments/assets/5e9e6faa-141a-433c-bbf4-1e2a7bdd5035" />
+<img width="1594" height="920" alt="image" src="https://github.com/user-attachments/assets/056147b5-8518-4ed8-b092-6fe4f50b1cb5" />
+<img width="1602" height="913" alt="image" src="https://github.com/user-attachments/assets/e4194bc0-8c18-4b31-9f7b-c4c08a894268" />
+<img width="1602" height="895" alt="image" src="https://github.com/user-attachments/assets/4b74715c-a581-45f1-866d-6e47cdfab72c" />
+<img width="1574" height="853" alt="image" src="https://github.com/user-attachments/assets/f7d2b07a-6894-41f6-8019-8ffce0549341" />
+<img width="1598" height="915" alt="image" src="https://github.com/user-attachments/assets/08b97f4f-6b81-4945-9e2c-5e5e0586b7cc" />
+<img width="1592" height="914" alt="image" src="https://github.com/user-attachments/assets/076ead38-91d4-4591-b550-16ac6a9afbe4" />
+<img width="1275" height="801" alt="image" src="https://github.com/user-attachments/assets/95ad6f31-5514-4720-a881-9db24b430e19" />
+
