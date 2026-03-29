@@ -3,9 +3,10 @@ FROM python:3.11-slim AS builder
 WORKDIR /app
 
 # Install build dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    build-essential && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
 COPY requirements.txt ./
@@ -16,11 +17,12 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Install system dependencies (required by pytesseract and CV/ML libraries)
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     tesseract-ocr \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
+    libgl1 \
+    libglib2.0-0 && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy installed packages from builder
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
