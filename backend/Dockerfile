@@ -17,4 +17,5 @@ COPY . .
 # Expose FastAPI port
 EXPOSE 8000
 # Run with gunicorn and uvicorn workers
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:8000", "main:app"]
+ENV PORT 8000
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:${PORT}", "main:app"]

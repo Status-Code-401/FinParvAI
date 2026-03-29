@@ -18,3 +18,4 @@ openai
 python-dotenv
 pypdf
 supabase
+gunicorn
