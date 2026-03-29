@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FinancialState, DecisionOutput, Prediction, ActionPlan } from '../types';
 
-const BASE = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 const api  = axios.create({ baseURL: BASE });
 
 export const getDemoState = (): Promise<FinancialState> =>
