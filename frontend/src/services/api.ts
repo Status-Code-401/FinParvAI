@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-const api = axios.create({ baseURL: BASE_URL });
+const BASE_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const api = axios.create({ baseURL: BASE_URL.replace(/\/$/, '') });
 
 export const getDashboard = () => api.get('/api/dashboard').then(r => r.data);
 export const getCashFlow = (days = 30) => api.get(`/api/cash-flow?days=${days}`).then(r => r.data);
