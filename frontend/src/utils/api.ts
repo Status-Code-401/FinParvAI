@@ -2,7 +2,7 @@ import axios from 'axios';
 import { FinancialState, DecisionOutput, Prediction, ActionPlan } from '../types';
 
 const BASE = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_URL || 'http://localhost:8000';
-const api  = axios.create({ baseURL: BASE.replace(/\/$/, '') });
+const api = axios.create({ baseURL: BASE.replace(/\/$/, '') });
 
 export const getDemoState = (): Promise<FinancialState> =>
   api.get('/api/ingest/demo-state').then(r => r.data);
