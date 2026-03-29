@@ -1,0 +1,1343 @@
+{
+    "business_profile": {
+        "name": "Sri Lakshmi Garments",
+        "owner": "Anand Babu",
+        "gstin": "33AABCS1234A1Z5",
+        "industry": "Garments Manufacturing",
+        "location": "Chennai, Tamil Nadu",
+        "established": "2022-04-01",
+        "ledger_currency": "INR"
+    },
+    "ledger_summary": {
+        "period": "Jan 2026 - Mar 2026 (Q1)",
+        "total_income": 583000,
+        "total_expense": 406200,
+        "net_profit": 176800,
+        "monthly_avg_income": 194333,
+        "monthly_avg_expense": 135400,
+        "avg_payment_cycle_days": 7,
+        "current_cash_balance": 45000
+    },
+    "monthly_summary": [
+        {
+            "month": "2026-01",
+            "income": 210000,
+            "expense": 133300,
+            "net": 76700,
+            "opening_balance": 85000,
+            "closing_balance": 161700
+        },
+        {
+            "month": "2026-02",
+            "income": 205000,
+            "expense": 130500,
+            "net": 74500,
+            "opening_balance": 161700,
+            "closing_balance": 236200
+        },
+        {
+            "month": "2026-03",
+            "income": 168000,
+            "expense": 142400,
+            "net": 25600,
+            "opening_balance": 236200,
+            "closing_balance": 45000
+        }
+    ],
+    "client_ledger": [
+        {
+            "client_id": "C001",
+            "client": "StyleMart Retail",
+            "contact": "Priya Sharma",
+            "phone": "+91-98410-11111",
+            "email": "priya.sharma@stylemart.in",
+            "relationship_months": 20,
+            "total_billed": 362000,
+            "total_collected": 362000,
+            "outstanding": 0,
+            "avg_payment_days": 5,
+            "on_time_payment_rate": 0.92,
+            "payment_history": [
+                {
+                    "invoice": "INV-2026-001",
+                    "amount": 45000,
+                    "billed_date": "2025-12-28",
+                    "paid_date": "2026-01-03",
+                    "days_taken": 6
+                },
+                {
+                    "invoice": "INV-2026-007",
+                    "amount": 38000,
+                    "billed_date": "2026-01-18",
+                    "paid_date": "2026-01-22",
+                    "days_taken": 4
+                },
+                {
+                    "invoice": "INV-2026-015",
+                    "amount": 50000,
+                    "billed_date": "2026-02-06",
+                    "paid_date": "2026-02-10",
+                    "days_taken": 4
+                },
+                {
+                    "invoice": "INV-2026-023",
+                    "amount": 48000,
+                    "billed_date": "2026-03-04",
+                    "paid_date": "2026-03-08",
+                    "days_taken": 4
+                }
+            ],
+            "risk_level": "low",
+            "notes": "Consistent payer, long-term relationship. Sometimes pays early for 1% discount."
+        },
+        {
+            "client_id": "C002",
+            "client": "FashionHub",
+            "contact": "Meena Iyer",
+            "phone": "+91-98411-22222",
+            "email": "meena@fashionhub.co.in",
+            "relationship_months": 14,
+            "total_billed": 175000,
+            "total_collected": 175000,
+            "outstanding": 0,
+            "avg_payment_days": 9,
+            "on_time_payment_rate": 0.85,
+            "payment_history": [
+                {
+                    "invoice": "INV-2026-002",
+                    "amount": 30000,
+                    "billed_date": "2026-01-01",
+                    "paid_date": "2026-01-10",
+                    "days_taken": 9
+                },
+                {
+                    "invoice": "INV-2026-009",
+                    "amount": 28000,
+                    "billed_date": "2026-01-24",
+                    "paid_date": "2026-02-02",
+                    "days_taken": 9
+                },
+                {
+                    "invoice": "INV-2026-017",
+                    "amount": 32000,
+                    "billed_date": "2026-02-20",
+                    "paid_date": "2026-03-01",
+                    "days_taken": 9
+                }
+            ],
+            "risk_level": "low",
+            "notes": "Reliable client. Consistent 9-day payment cycle."
+        },
+        {
+            "client_id": "C003",
+            "client": "TrendZone Exports",
+            "contact": "Arjun Menon",
+            "phone": "+91-98412-33333",
+            "email": "arjun@trendzone.com",
+            "relationship_months": 10,
+            "total_billed": 310000,
+            "total_collected": 310000,
+            "outstanding": 0,
+            "avg_payment_days": 12,
+            "on_time_payment_rate": 0.78,
+            "payment_history": [
+                {
+                    "invoice": "INV-2026-003",
+                    "amount": 55000,
+                    "billed_date": "2026-01-03",
+                    "paid_date": "2026-01-15",
+                    "days_taken": 12
+                },
+                {
+                    "invoice": "INV-2026-012",
+                    "amount": 60000,
+                    "billed_date": "2026-02-05",
+                    "paid_date": "2026-02-17",
+                    "days_taken": 12
+                },
+                {
+                    "invoice": "INV-2026-020",
+                    "amount": 40000,
+                    "billed_date": "2026-03-05",
+                    "paid_date": "2026-03-17",
+                    "days_taken": 12
+                }
+            ],
+            "risk_level": "medium",
+            "notes": "Export client. Payments come after 12 days consistently. Delayed twice in last 6 months."
+        },
+        {
+            "client_id": "C004",
+            "client": "NovaTex Wholesale",
+            "contact": "Deepak Nair",
+            "phone": "+91-98413-44444",
+            "email": "deepak@novatex.in",
+            "relationship_months": 8,
+            "total_billed": 204000,
+            "total_collected": 179000,
+            "outstanding": 25000,
+            "avg_payment_days": 14,
+            "on_time_payment_rate": 0.65,
+            "payment_history": [
+                {
+                    "invoice": "INV-2026-005",
+                    "amount": 42000,
+                    "billed_date": "2026-01-16",
+                    "paid_date": "2026-01-30",
+                    "days_taken": 14
+                },
+                {
+                    "invoice": "INV-2026-014",
+                    "amount": 35000,
+                    "billed_date": "2026-02-09",
+                    "paid_date": "2026-02-23",
+                    "days_taken": 14
+                },
+                {
+                    "invoice": "INV-2026-022",
+                    "amount": 25000,
+                    "billed_date": "2026-03-08",
+                    "paid_date": null,
+                    "days_taken": null,
+                    "status": "overdue_3_days"
+                }
+            ],
+            "risk_level": "medium",
+            "notes": "Occasional delays. Currently has overdue invoice of â‚¹25,000. Needs follow-up."
+        },
+        {
+            "client_id": "C005",
+            "client": "GarmentX Direct",
+            "contact": "Kavya Reddy",
+            "phone": "+91-98414-55555",
+            "email": "kavya@garmentx.in",
+            "relationship_months": 4,
+            "total_billed": 95000,
+            "total_collected": 60000,
+            "outstanding": 35000,
+            "avg_payment_days": 18,
+            "on_time_payment_rate": 0.5,
+            "payment_history": [
+                {
+                    "invoice": "INV-2026-019",
+                    "amount": 60000,
+                    "billed_date": "2026-02-15",
+                    "paid_date": "2026-03-05",
+                    "days_taken": 18
+                },
+                {
+                    "invoice": "INV-2026-025",
+                    "amount": 35000,
+                    "billed_date": "2026-03-07",
+                    "paid_date": null,
+                    "days_taken": null,
+                    "status": "overdue_7_days"
+                }
+            ],
+            "risk_level": "high",
+            "notes": "New client. Second invoice overdue by 7 days. High risk - consider advance payment policy."
+        }
+    ],
+    "active_receivables": [
+        {
+            "invoice_id": "INV-2026-022",
+            "client": "NovaTex Wholesale",
+            "client_id": "C004",
+            "amount": 25000,
+            "invoice_date": "2026-03-08",
+            "due_date": "2026-03-22",
+            "days_overdue": 3,
+            "expected_date": "2026-03-28",
+            "collection_probability": 0.82,
+            "status": "overdue",
+            "action_required": "follow_up_call"
+        },
+        {
+            "invoice_id": "INV-2026-025",
+            "client": "GarmentX Direct",
+            "client_id": "C005",
+            "amount": 35000,
+            "invoice_date": "2026-03-07",
+            "due_date": "2026-03-18",
+            "days_overdue": 7,
+            "expected_date": "2026-04-02",
+            "collection_probability": 0.65,
+            "status": "overdue",
+            "action_required": "escalation_email"
+        },
+        {
+            "invoice_id": "INV-2026-026",
+            "client": "StyleMart Retail",
+            "client_id": "C001",
+            "amount": 52000,
+            "invoice_date": "2026-03-22",
+            "due_date": "2026-03-27",
+            "days_overdue": 0,
+            "expected_date": "2026-03-27",
+            "collection_probability": 0.95,
+            "status": "due_soon",
+            "action_required": "none"
+        },
+        {
+            "invoice_id": "INV-2026-027",
+            "client": "TrendZone Exports",
+            "client_id": "C003",
+            "amount": 45000,
+            "invoice_date": "2026-03-20",
+            "due_date": "2026-04-01",
+            "days_overdue": 0,
+            "expected_date": "2026-04-01",
+            "collection_probability": 0.8,
+            "status": "upcoming",
+            "action_required": "none"
+        }
+    ],
+    "active_payables": [
+        {
+            "payable_id": "PAY001",
+            "vendor": "ABC Textiles",
+            "vendor_id": "V001",
+            "description": "Cotton Fabric (White) - PO001",
+            "amount": 22500,
+            "invoice_date": "2026-03-23",
+            "due_date": "2026-03-30",
+            "days_until_due": 5,
+            "type": "critical",
+            "penalty": "high",
+            "penalty_amount": 2250,
+            "flexibility": "low",
+            "status": "unpaid",
+            "priority_score": 0.88
+        },
+        {
+            "payable_id": "PAY002",
+            "vendor": "ABC Textiles",
+            "vendor_id": "V001",
+            "description": "Cotton Fabric (Colored) - PO002",
+            "amount": 16500,
+            "invoice_date": "2026-03-25",
+            "due_date": "2026-04-01",
+            "days_until_due": 7,
+            "type": "critical",
+            "penalty": "medium",
+            "penalty_amount": 825,
+            "flexibility": "medium",
+            "status": "unpaid",
+            "priority_score": 0.75
+        },
+        {
+            "payable_id": "PAY003",
+            "vendor": "TNEB (Electricity)",
+            "vendor_id": "UTIL001",
+            "description": "March 2026 Electricity Bill",
+            "amount": 3200,
+            "invoice_date": "2026-03-20",
+            "due_date": "2026-03-28",
+            "days_until_due": 3,
+            "type": "critical",
+            "penalty": "high",
+            "penalty_amount": 320,
+            "flexibility": "none",
+            "status": "unpaid",
+            "priority_score": 0.95
+        },
+        {
+            "payable_id": "PAY004",
+            "vendor": "Office Landlord",
+            "vendor_id": "RENT001",
+            "description": "April 2026 Rent (advance)",
+            "amount": 12000,
+            "invoice_date": "2026-03-25",
+            "due_date": "2026-04-01",
+            "days_until_due": 7,
+            "type": "critical",
+            "penalty": "high",
+            "penalty_amount": 1200,
+            "flexibility": "low",
+            "status": "unpaid",
+            "priority_score": 0.85
+        },
+        {
+            "payable_id": "PAY005",
+            "vendor": "Krishna Dyes & Chemicals",
+            "vendor_id": "V003",
+            "description": "Dye (Reactive Blue + Red) - PO004 & PO005",
+            "amount": 13600,
+            "invoice_date": "2026-03-27",
+            "due_date": "2026-04-03",
+            "days_until_due": 9,
+            "type": "flexible",
+            "penalty": "low",
+            "penalty_amount": 0,
+            "flexibility": "high",
+            "status": "pending",
+            "priority_score": 0.45
+        },
+        {
+            "payable_id": "PAY006",
+            "vendor": "Sundaram Buttons & Accessories",
+            "vendor_id": "V004",
+            "description": "Zippers (Metal) - PO006",
+            "amount": 5400,
+            "invoice_date": "2026-03-28",
+            "due_date": "2026-04-04",
+            "days_until_due": 10,
+            "type": "flexible",
+            "penalty": "low",
+            "penalty_amount": 0,
+            "flexibility": "medium",
+            "status": "pending",
+            "priority_score": 0.4
+        },
+        {
+            "payable_id": "PAY007",
+            "vendor": "Staff Salaries",
+            "vendor_id": "HR001",
+            "description": "March 2026 Staff Salaries",
+            "amount": 28000,
+            "invoice_date": "2026-03-25",
+            "due_date": "2026-03-31",
+            "days_until_due": 6,
+            "type": "critical",
+            "penalty": "very_high",
+            "penalty_amount": 5000,
+            "flexibility": "none",
+            "status": "unpaid",
+            "priority_score": 0.98
+        },
+        {
+            "payable_id": "PAY008",
+            "vendor": "Google Ads",
+            "vendor_id": "MKT001",
+            "description": "April Ads Campaign Budget",
+            "amount": 5000,
+            "invoice_date": "2026-03-25",
+            "due_date": "2026-04-05",
+            "days_until_due": 11,
+            "type": "non_essential",
+            "penalty": "none",
+            "penalty_amount": 0,
+            "flexibility": "very_high",
+            "status": "pending",
+            "priority_score": 0.2
+        },
+        {
+            "payable_id": "PAY009",
+            "vendor": "Bluedart Logistics",
+            "vendor_id": "LOG001",
+            "description": "Pending delivery charges",
+            "amount": 2500,
+            "invoice_date": "2026-03-24",
+            "due_date": "2026-03-31",
+            "days_until_due": 6,
+            "type": "flexible",
+            "penalty": "medium",
+            "penalty_amount": 0,
+            "flexibility": "medium",
+            "status": "unpaid",
+            "priority_score": 0.55
+        },
+        {
+            "payable_id": "PAY-F71F94C1",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-9B4DB56F",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B1D94DE2",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-79C89655",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-3B5CA7A6",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-CAD992A2",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-7203D03D",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-ED7BE1D4",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C87A14D7",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B68C59D9",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-0EF40A2C",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C2BDAD62",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-8A5F9100",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C299F91E",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-508B9F04",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-2121159F",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-055CFF13",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-27E98246",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-52B9DD7E",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-9DBD4D82",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C7867090",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-74B9C1F3",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-7CB5D543",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-0F4FD6AF",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-2E2654AF",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-8E56E0F8",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-3335B3A2",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-86BA313E",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-8EEA2494",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-0467DCAE",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-21CD387A",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B1EF3961",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-F53FE8C9",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-6E7D9E8B",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B3B29B09",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-6D70D7E5",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-3C970C4D",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-A76CC964",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-FF298F7F",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-1B438A2C",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-31F4AEB6",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-5D48BC25",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D668AFCF",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-8CF4D319",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-4CE00A04",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-02783794",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-A0CBF502",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-8AD86A77",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-60D8B1AF",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-8E5F31E5",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-5562AF72",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EF798F09",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-74A33F3C",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D1638971",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-20D8AF77",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-B23E5E21",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D550AEBF",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-C431766D",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-21615ED3",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D8370FFE",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-0BC60B37",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-DB537144",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-AF3CB864",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-6FFA6D57",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-FA38653E",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-24D1A9E3",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-7344CB1A",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D8C8D207",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D65FF996",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-457CD403",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EF78DB97",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-C7DEE3FA",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EC26CE33",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-E9DB7AE6",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EDF6E651",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-1C3A9426",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        }
+    ],
+    "overheads": [
+        {
+            "type": "electricity",
+            "monthly_avg": 3200,
+            "essential": true,
+            "can_reduce": false
+        },
+        {
+            "type": "rent",
+            "monthly_avg": 12000,
+            "essential": true,
+            "can_reduce": false
+        },
+        {
+            "type": "salaries",
+            "monthly_avg": 28000,
+            "essential": true,
+            "can_reduce": false
+        },
+        {
+            "type": "logistics",
+            "monthly_avg": 2200,
+            "essential": true,
+            "can_reduce": true,
+            "reducible_by": 0.3
+        },
+        {
+            "type": "google_ads",
+            "monthly_avg": 5000,
+            "essential": false,
+            "can_reduce": true,
+            "reducible_by": 1.0
+        },
+        {
+            "type": "instagram_ads",
+            "monthly_avg": 3000,
+            "essential": false,
+            "can_reduce": true,
+            "reducible_by": 1.0
+        },
+        {
+            "type": "miscellaneous",
+            "monthly_avg": 1500,
+            "essential": false,
+            "can_reduce": true,
+            "reducible_by": 0.8
+        }
+    ],
+    "production_data": {
+        "current_month": "2026-03",
+        "daily_production": {
+            "2026-03-01": 110,
+            "2026-03-03": 105,
+            "2026-03-04": 120,
+            "2026-03-05": 115,
+            "2026-03-06": 118,
+            "2026-03-07": 112,
+            "2026-03-08": 0,
+            "2026-03-10": 108,
+            "2026-03-11": 115,
+            "2026-03-12": 122,
+            "2026-03-13": 110,
+            "2026-03-14": 118,
+            "2026-03-15": 0,
+            "2026-03-17": 105,
+            "2026-03-18": 112,
+            "2026-03-19": 120,
+            "2026-03-20": 115,
+            "2026-03-21": 108,
+            "2026-03-22": 0,
+            "2026-03-24": 110,
+            "2026-03-25": 115
+        },
+        "cost_per_unit": 95,
+        "selling_price_per_unit": 185,
+        "units_produced_march": 1688,
+        "target_monthly_units": 2200,
+        "cost_breakdown_per_unit": {
+            "fabric": 45,
+            "thread_accessories": 12,
+            "dye_chemicals": 8,
+            "labor": 20,
+            "overhead_allocation": 10
+        }
+    },
+    "payment_cycle_analysis": {
+        "avg_days_to_collect": 9.8,
+        "avg_days_to_pay": 7,
+        "clients_by_risk": {
+            "low": [
+                "StyleMart Retail",
+                "FashionHub"
+            ],
+            "medium": [
+                "TrendZone Exports",
+                "NovaTex Wholesale"
+            ],
+            "high": [
+                "GarmentX Direct"
+            ]
+        },
+        "predicted_collections_next_7_days": [
+            {
+                "client": "StyleMart Retail",
+                "amount": 52000,
+                "expected_date": "2026-03-27",
+                "probability": 0.95
+            },
+            {
+                "client": "NovaTex Wholesale",
+                "amount": 25000,
+                "expected_date": "2026-03-28",
+                "probability": 0.82
+            }
+        ],
+        "predicted_collections_next_30_days": [
+            {
+                "client": "StyleMart Retail",
+                "amount": 52000,
+                "expected_date": "2026-03-27",
+                "probability": 0.95
+            },
+            {
+                "client": "NovaTex Wholesale",
+                "amount": 25000,
+                "expected_date": "2026-03-28",
+                "probability": 0.82
+            },
+            {
+                "client": "GarmentX Direct",
+                "amount": 35000,
+                "expected_date": "2026-04-02",
+                "probability": 0.65
+            },
+            {
+                "client": "TrendZone Exports",
+                "amount": 45000,
+                "expected_date": "2026-04-01",
+                "probability": 0.8
+            }
+        ]
+    }
+}

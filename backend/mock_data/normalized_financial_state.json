@@ -1,0 +1,1758 @@
+{
+    "_meta": {
+        "description": "Normalized Financial State - Core Input for Deterministic Decision Engine",
+        "generated_at": "2026-03-25T18:00:00+05:30",
+        "business": "Sri Lakshmi Garments",
+        "engine_version": "1.0.0"
+    },
+    "cash_balance": 45000,
+    "transactions": [
+        {
+            "date": "2026-03-22",
+            "description": "NovaTex Wholesale payment",
+            "credit": 25000,
+            "type": "receivable_collection"
+        },
+        {
+            "date": "2026-03-20",
+            "description": "Instagram Ads",
+            "debit": 3000,
+            "type": "marketing"
+        },
+        {
+            "date": "2026-03-19",
+            "description": "ABC Textiles Partial",
+            "debit": 10000,
+            "type": "vendor_payment"
+        },
+        {
+            "date": "2026-03-18",
+            "description": "Bluedart logistics",
+            "debit": 1600,
+            "type": "logistics"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u00e2\u20ac\u201c utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-22",
+            "description": "Bill from FastTech Supplies \u2013 utility",
+            "debit": 4500.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "utility"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25",
+            "description": "Bill from Unknown Scanned Vendor \u2013 misc",
+            "debit": 1000.0,
+            "credit": 0.0,
+            "balance": null,
+            "category": "misc"
+        },
+        {
+            "date": "2026-03-25T10:00:00Z",
+            "description": "NEFT - Metro Retailers Settlemnt",
+            "debit": 0,
+            "credit": 48500,
+            "balance": 2048500,
+            "category": "income",
+            "type": "transfer"
+        }
+    ],
+    "payables": [
+        {
+            "payable_id": "PAY007",
+            "vendor": "Staff Salaries",
+            "amount": 28000,
+            "due_date": "2026-03-31",
+            "days_until_due": 6,
+            "penalty": "very_high",
+            "type": "critical",
+            "flexibility": "none",
+            "linked_orders": [],
+            "priority_score": 0.98
+        },
+        {
+            "payable_id": "PAY003",
+            "vendor": "TNEB Electricity",
+            "amount": 3200,
+            "due_date": "2026-03-28",
+            "days_until_due": 3,
+            "penalty": "high",
+            "type": "critical",
+            "flexibility": "none",
+            "linked_orders": [],
+            "priority_score": 0.95
+        },
+        {
+            "payable_id": "PAY001",
+            "vendor": "ABC Textiles",
+            "amount": 22500,
+            "due_date": "2026-03-30",
+            "days_until_due": 5,
+            "penalty": "high",
+            "type": "critical",
+            "flexibility": "low",
+            "linked_orders": [
+                "PO001"
+            ],
+            "priority_score": 0.88
+        },
+        {
+            "payable_id": "PAY004",
+            "vendor": "Office Rent",
+            "amount": 12000,
+            "due_date": "2026-04-01",
+            "days_until_due": 7,
+            "penalty": "high",
+            "type": "critical",
+            "flexibility": "low",
+            "linked_orders": [],
+            "priority_score": 0.85
+        },
+        {
+            "payable_id": "PAY002",
+            "vendor": "ABC Textiles (PO002)",
+            "amount": 16500,
+            "due_date": "2026-04-01",
+            "days_until_due": 7,
+            "penalty": "medium",
+            "type": "critical",
+            "flexibility": "medium",
+            "linked_orders": [
+                "PO002"
+            ],
+            "priority_score": 0.75
+        },
+        {
+            "payable_id": "PAY009",
+            "vendor": "Bluedart Logistics",
+            "amount": 2500,
+            "due_date": "2026-03-31",
+            "days_until_due": 6,
+            "penalty": "medium",
+            "type": "flexible",
+            "flexibility": "medium",
+            "linked_orders": [],
+            "priority_score": 0.55
+        },
+        {
+            "payable_id": "PAY005",
+            "vendor": "Krishna Dyes & Chemicals",
+            "amount": 13600,
+            "due_date": "2026-04-03",
+            "days_until_due": 9,
+            "penalty": "low",
+            "type": "flexible",
+            "flexibility": "high",
+            "linked_orders": [
+                "PO004",
+                "PO005"
+            ],
+            "priority_score": 0.45
+        },
+        {
+            "payable_id": "PAY006",
+            "vendor": "Sundaram Buttons",
+            "amount": 5400,
+            "due_date": "2026-04-04",
+            "days_until_due": 10,
+            "penalty": "low",
+            "type": "flexible",
+            "flexibility": "medium",
+            "linked_orders": [
+                "PO006"
+            ],
+            "priority_score": 0.4
+        },
+        {
+            "payable_id": "PAY008",
+            "vendor": "Google Ads",
+            "amount": 5000,
+            "due_date": "2026-04-05",
+            "days_until_due": 11,
+            "penalty": "none",
+            "type": "non_essential",
+            "flexibility": "very_high",
+            "linked_orders": [],
+            "priority_score": 0.2
+        },
+        {
+            "payable_id": "PAY-F71F94C1",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-9B4DB56F",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B1D94DE2",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-79C89655",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-3B5CA7A6",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-CAD992A2",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-7203D03D",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-ED7BE1D4",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C87A14D7",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B68C59D9",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-0EF40A2C",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C2BDAD62",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-8A5F9100",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C299F91E",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-508B9F04",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-2121159F",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-055CFF13",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-27E98246",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-52B9DD7E",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-9DBD4D82",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-C7867090",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-74B9C1F3",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-7CB5D543",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-0F4FD6AF",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-2E2654AF",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-8E56E0F8",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-3335B3A2",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-86BA313E",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-8EEA2494",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-0467DCAE",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-21CD387A",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B1EF3961",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-F53FE8C9",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-6E7D9E8B",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-B3B29B09",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-6D70D7E5",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-3C970C4D",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-A76CC964",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-FF298F7F",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-1B438A2C",
+            "vendor": "FastTech Supplies",
+            "amount": 4500.0,
+            "due_date": "2026-04-05",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "utility"
+        },
+        {
+            "payable_id": "PAY-31F4AEB6",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-5D48BC25",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D668AFCF",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-8CF4D319",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-4CE00A04",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-02783794",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-A0CBF502",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-8AD86A77",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-60D8B1AF",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-8E5F31E5",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-5562AF72",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EF798F09",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-74A33F3C",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D1638971",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-20D8AF77",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-B23E5E21",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D550AEBF",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-C431766D",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-21615ED3",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D8370FFE",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-0BC60B37",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-DB537144",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-AF3CB864",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-6FFA6D57",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-FA38653E",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-24D1A9E3",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-7344CB1A",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D8C8D207",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-D65FF996",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-457CD403",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EF78DB97",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-C7DEE3FA",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EC26CE33",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-E9DB7AE6",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-EDF6E651",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        },
+        {
+            "payable_id": "PAY-1C3A9426",
+            "vendor": "Unknown Scanned Vendor",
+            "amount": 1000.0,
+            "due_date": "2026-03-25",
+            "type": "flexible",
+            "status": "unpaid",
+            "priority_score": 0.5,
+            "description": "misc"
+        }
+    ],
+    "receivables": [
+        {
+            "invoice_id": "CINV-2026-SM-026",
+            "client": "StyleMart Retail",
+            "amount": 52000,
+            "expected_date": "2026-03-27",
+            "collection_probability": 0.95,
+            "status": "due_soon",
+            "days_overdue": 0
+        },
+        {
+            "invoice_id": "CINV-2026-NT-025",
+            "client": "NovaTex Wholesale",
+            "amount": 25000,
+            "expected_date": "2026-03-28",
+            "collection_probability": 0.82,
+            "status": "overdue",
+            "days_overdue": 3
+        },
+        {
+            "invoice_id": "CINV-2026-TZ-027",
+            "client": "TrendZone Exports",
+            "amount": 45000,
+            "expected_date": "2026-04-01",
+            "collection_probability": 0.8,
+            "status": "upcoming",
+            "days_overdue": 0
+        },
+        {
+            "invoice_id": "CINV-2026-GX-027",
+            "client": "GarmentX Direct",
+            "amount": 35000,
+            "expected_date": "2026-04-02",
+            "collection_probability": 0.65,
+            "status": "overdue",
+            "days_overdue": 7
+        },
+        {
+            "invoice_id": "INV-2045",
+            "client": "Metro Retailers",
+            "amount": 50000,
+            "expected_date": "2026-03-24",
+            "collection_probability": 1.0,
+            "status": "paid",
+            "days_overdue": 0
+        }
+    ],
+    "overheads": [
+        {
+            "type": "electricity",
+            "amount": 3200,
+            "essential": true,
+            "can_reduce": false
+        },
+        {
+            "type": "rent",
+            "amount": 12000,
+            "essential": true,
+            "can_reduce": false
+        },
+        {
+            "type": "salaries",
+            "amount": 28000,
+            "essential": true,
+            "can_reduce": false
+        },
+        {
+            "type": "logistics",
+            "amount": 2500,
+            "essential": true,
+            "can_reduce": true
+        },
+        {
+            "type": "google_ads",
+            "amount": 5000,
+            "essential": false,
+            "can_reduce": true
+        },
+        {
+            "type": "miscellaneous",
+            "amount": 800,
+            "essential": false,
+            "can_reduce": true
+        }
+    ],
+    "ledger_summary": {
+        "monthly_income": 194333,
+        "monthly_expense": 135400,
+        "avg_payment_cycle_days": 7,
+        "avg_collection_days": 9.8
+    },
+    "inventory_procurement": [
+        {
+            "order_id": "PO001",
+            "vendor": "ABC Textiles",
+            "material": "Cotton Fabric White",
+            "quantity": 500,
+            "unit_cost": 45,
+            "total_cost": 22500,
+            "order_date": "2026-03-20",
+            "delivery_date": "2026-03-23",
+            "lead_time": 3,
+            "status": "delivered"
+        }
+    ],
+    "inventory_status": [
+        {
+            "item": "Cotton Fabric White",
+            "available_quantity": 850,
+            "required_quantity": 600,
+            "shortage": 0,
+            "excess": 250
+        },
+        {
+            "item": "Cotton Fabric Colored",
+            "available_quantity": 320,
+            "required_quantity": 400,
+            "shortage": 80,
+            "excess": 0
+        },
+        {
+            "item": "Polyester Thread",
+            "available_quantity": 290,
+            "required_quantity": 220,
+            "shortage": 0,
+            "excess": 70
+        },
+        {
+            "item": "Dye Chemicals",
+            "available_quantity": 35,
+            "required_quantity": 38,
+            "shortage": 3,
+            "excess": 0
+        },
+        {
+            "item": "Buttons & Accessories",
+            "available_quantity": 60,
+            "required_quantity": 40,
+            "shortage": 0,
+            "excess": 20
+        },
+        {
+            "item": "Zippers",
+            "available_quantity": 500,
+            "required_quantity": 600,
+            "shortage": 100,
+            "excess": 0
+        }
+    ],
+    "vendor_insights": [
+        {
+            "vendor": "ABC Textiles",
+            "total_orders": 18,
+            "avg_lead_time": 3,
+            "payment_delay_avg": 1.5,
+            "reliability_score": 0.87,
+            "cost_efficiency_score": 0.82,
+            "negotiation_flexibility": "medium"
+        },
+        {
+            "vendor": "Krishna Dyes & Chemicals",
+            "total_orders": 10,
+            "avg_lead_time": 3,
+            "payment_delay_avg": 3.0,
+            "reliability_score": 0.78,
+            "cost_efficiency_score": 0.85,
+            "negotiation_flexibility": "high"
+        }
+    ],
+    "production": {
+        "daily_output": {
+            "avg_per_day": 113,
+            "yesterday": 115,
+            "today_estimate": 110
+        },
+        "cost_per_unit": 95,
+        "selling_price_per_unit": 185,
+        "units_this_month": 1688,
+        "monthly_target": 2200
+    },
+    "cost_breakdown": {
+        "internal_monthly": 28000,
+        "external_monthly": 107400,
+        "total_monthly_obligations": 108700
+    },
+    "software_subscriptions": [
+        {
+            "tool_name": "Zoom Pro",
+            "category": "Communications",
+            "monthly_cost": 1500,
+            "utilization_percent": 0,
+            "active": true,
+            "renewal_date": "2026-04-10"
+        },
+        {
+            "tool_name": "Microsoft Teams (Enterprise)",
+            "category": "Communications",
+            "monthly_cost": 4500,
+            "utilization_percent": 85,
+            "active": true,
+            "renewal_date": "2026-04-15"
+        },
+        {
+            "tool_name": "AWS EC2 Test Environment",
+            "category": "Cloud Infrastructure",
+            "monthly_cost": 3200,
+            "utilization_percent": 0,
+            "active": true,
+            "renewal_date": "2026-03-30"
+        }
+    ],
+    "factory_status": [
+        {
+            "line_name": "Line A (Cotton Standard)",
+            "status": "active",
+            "current_product": "T-Shirts Basic",
+            "delay_days": 0,
+            "idle_penalty_per_day": 0
+        },
+        {
+            "line_name": "Line B (Premium Dyes)",
+            "status": "warning",
+            "current_product": "Premium Hoodies",
+            "delay_days": 3,
+            "idle_penalty_per_day": 12500
+        }
+    ]
+}

@@ -29,9 +29,12 @@ except ImportError:
     logger.warning("supabase-py not installed. Run: pip install supabase")
 
 # ── Mock data fallback path ───────────────────────────────────────────────────
-MOCK_DATA_DIR = os.path.join(
-    os.path.dirname(__file__), "..", "..", "..", "mock_data"
-)
+# Robust Mock data fallback path (works both locally and in Render Docker)
+_this_dir = os.path.dirname(__file__)
+# Local in backend/ folder (Docker context) OR Root-relative (traditional dev)
+MOCK_DATA_DIR = os.path.join(_this_dir, "..", "..", "mock_data")
+if not os.path.exists(MOCK_DATA_DIR):
+    MOCK_DATA_DIR = os.path.join(_this_dir, "..", "..", "..", "mock_data")
 
 
 class SupabaseDB:

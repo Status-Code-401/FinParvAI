@@ -13,7 +13,10 @@ import json
 
 router = APIRouter(prefix="/api", tags=["financials"])
 
-MOCK_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "mock_data")
+_this_dir = os.path.dirname(__file__)
+MOCK_DATA_DIR = os.path.join(_this_dir, "..", "..", "mock_data")
+if not os.path.exists(MOCK_DATA_DIR):
+    MOCK_DATA_DIR = os.path.join(_this_dir, "..", "..", "..", "mock_data")
 
 
 BUSINESS_ID = 1
