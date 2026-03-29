@@ -26,8 +26,9 @@ RUN apt-get update && \
     libglib2.0-0 && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy installed packages from builder
+# Copy installed packages and binaries from builder
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
 # Copy application code from current build context
 COPY . .
 
