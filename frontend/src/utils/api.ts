@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { FinancialState, DecisionOutput, Prediction, ActionPlan } from '../types';
 
-const BASE = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const BASE = import.meta.env.VITE_API_URL || (isLocal ? 'http://localhost:8000' : 'https://finparvai.onrender.com');
 const api = axios.create({ baseURL: BASE.replace(/\/$/, '') });
 
 export const getDemoState = (): Promise<FinancialState> =>
