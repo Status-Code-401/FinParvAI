@@ -1,11 +1,11 @@
+from app.routers.financial import get_cash_flow
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from app.routers.financial import get_dashboard
 
 try:
-    print("Testing get_dashboard()...")
-    res = get_dashboard()
+    print("Testing get_cash_flow()...")
+    res = get_cash_flow()
     print("SUCCESS, keys:", res.keys())
 except Exception as e:
     import traceback
