@@ -48,34 +48,38 @@ def get_financial_state():
 @router.get("/dashboard")
 def get_dashboard():
     """Return dashboard summary KPIs."""
-    state = _load_state()
-    result = run_engine(state)
-    ledger = _load_ledger()
-
-    return {
-        "business_name": state.business_name,
-        "cash_balance": state.cash_balance,
-        "risk_level": result["risk_level"],
-        "days_to_zero": result["runway"]["days_to_zero"],
-        "is_safe": result["runway"]["is_safe"],
-        "first_negative_date": result["runway"]["first_negative_date"],
-        "total_payables": result["summary"]["total_payables"],
-        "total_receivables_expected": result["summary"]["total_receivables_expected"],
-        "total_overheads": result["summary"]["total_overheads"],
-        "net_position": result["summary"]["net_position"],
-        "monthly_income": state.ledger_summary.monthly_income if state.ledger_summary else 0,
-        "monthly_expense": state.ledger_summary.monthly_expense if state.ledger_summary else 0,
-        "avg_payment_cycle": state.ledger_summary.avg_payment_cycle_days if state.ledger_summary else 7,
-        "payables_count": len(state.payables),
-        "receivables_count": len(state.receivables),
-        "overdue_receivables": len([r for r in state.receivables if r.days_overdue > 0]),
-        "critical_payables": len([p for p in state.payables if p.type == "critical"]),
-        "shortfall_detected": result["shortfall"]["shortfall_detected"],
-        "production_units_month": state.production.units_this_month if state.production else 0,
-        "production_target": state.production.monthly_target if state.production else 0,
-        "actions": result["actions"]["actions"],
-        "explanation": result["explanation"],
-    }
+    try:
+        state = _load_state()
+        result = run_engine(state)
+        ledger = _load_ledger()
+    
+        return {
+            "business_name": state.business_name,
+            "cash_balance": state.cash_balance,
+            "risk_level": result["risk_level"],
+            "days_to_zero": result["runway"]["days_to_zero"],
+            "is_safe": result["runway"]["is_safe"],
+            "first_negative_date": result["runway"]["first_negative_date"],
+            "total_payables": result["summary"]["total_payables"],
+            "total_receivables_expected": result["summary"]["total_receivables_expected"],
+            "total_overheads": result["summary"]["total_overheads"],
+            "net_position": result["summary"]["net_position"],
+            "monthly_income": state.ledger_summary.monthly_income if state.ledger_summary else 0,
+            "monthly_expense": state.ledger_summary.monthly_expense if state.ledger_summary else 0,
+            "avg_payment_cycle": state.ledger_summary.avg_payment_cycle_days if state.ledger_summary else 7,
+            "payables_count": len(state.payables),
+            "receivables_count": len(state.receivables),
+            "overdue_receivables": len([r for r in state.receivables if r.days_overdue > 0]),
+            "critical_payables": len([p for p in state.payables if p.type == "critical"]),
+            "shortfall_detected": result["shortfall"]["shortfall_detected"],
+            "production_units_month": state.production.units_this_month if state.production else 0,
+            "production_target": state.production.monthly_target if state.production else 0,
+            "actions": result["actions"]["actions"],
+            "explanation": result["explanation"],
+        }
+    except Exception as e:
+        import traceback
+        return {"error": str(e), "traceback": traceback.format_exc()}
 
 
 @router.get("/cash-flow")

@@ -24,9 +24,9 @@ logger = logging.getLogger(__name__)
 try:
     from supabase import create_client, Client as SupabaseClient
     SUPABASE_AVAILABLE = True
-except ImportError:
+except Exception as e:
     SUPABASE_AVAILABLE = False
-    logger.warning("supabase-py not installed. Run: pip install supabase")
+    logger.warning(f"supabase-py failed to import: {e}. Run: pip install supabase")
 
 # ── Mock data fallback path ───────────────────────────────────────────────────
 # Robust Mock data fallback path (works both locally and in Render Docker)
