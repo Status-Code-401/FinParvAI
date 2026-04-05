@@ -1,4 +1,4 @@
-## Product Name: **FinParvai – Financial Decision Intelligence System**
+## **FinParvai – Financial Decision Intelligence System**
 
 ---
 
