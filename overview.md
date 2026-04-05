@@ -1,7 +1,3 @@
-# PR Document
-
-**PRODUCT REQUIREMENTS DOCUMENT (PRD)**
-
 ## Product Name: **FinParvai – Financial Decision Intelligence System**
 
 ---
